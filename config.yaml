@@ -1,0 +1,321 @@
+# =================== External Trends ===================
+external:
+  # 只看最近内容，避免混入旧新闻、旧发布、榜单、旧评测
+  lookback_days: 7
+  max_items_per_source: 5
+  max_items_total: 30
+  max_report_items_per_section: 10
+
+  tech_keywords:
+    - "mobile imaging"
+    - "computational photography"
+    - "image sensor"
+    - "camera sensor"
+    - "HDR"
+    - "autofocus"
+    - "AI imaging"
+    - "neural ISP"
+    - "low light"
+    - "super resolution"
+    - "计算摄影"
+    - "手机影像"
+    - "影像算法"
+    - "图像传感器"
+    - "神经网络 ISP"
+
+  tech_exclude_keywords:
+    - "legal evidence"
+    - "colonoscopy"
+    - "satellite"
+    - "pose estimation"
+    - "world model"
+    - "buying guide"
+    - "still-life"
+
+  oem_brands:
+    - "Apple"
+    - "iPhone"
+    - "Samsung"
+    - "Galaxy"
+    - "Xiaomi"
+    - "OPPO"
+    - "vivo"
+    - "Huawei"
+    - "HONOR"
+    - "Google Pixel"
+    - "Pixel"
+    - "Sony LYTIA"
+    - "Samsung ISOCELL"
+    - "OmniVision"
+    - "苹果"
+    - "三星"
+    - "小米"
+    - "OPPO"
+    - "vivo"
+    - "华为"
+    - "荣耀"
+    - "索尼"
+
+  # 手机厂商影像趋势必须命中这些技术词之一，避免只抓到榜单/评测
+  oem_keywords:
+    - "camera"
+    - "camera system"
+    - "camera upgrade"
+    - "camera module"
+    - "camera sensor"
+    - "image sensor"
+    - "imaging technology"
+    - "computational photography"
+    - "photography"
+    - "photo"
+    - "image processing"
+    - "AI camera"
+    - "AI imaging"
+    - "HDR"
+    - "ISP"
+    - "telephoto"
+    - "periscope"
+    - "zoom"
+    - "variable aperture"
+    - "LYTIA"
+    - "LOFIC"
+    - "portrait engine"
+    - "ISOCELL"
+    - "OmniVision"
+    - "stacked sensor"
+    - "night mode"
+    - "low light"
+    - "影像技术"
+    - "影像系统"
+    - "影像算法"
+    - "传感器"
+    - "相机"
+    - "摄像头"
+    - "拍照"
+    - "摄影"
+    - "镜头"
+    - "长焦"
+    - "潜望"
+    - "可变光圈"
+    - "计算摄影"
+    - "AI影像"
+    - "夜景"
+    - "人像引擎"
+    - "手机影像"
+    - "影像旗舰"
+    - "主摄"
+    - "超广角"
+    - "长焦镜头"
+    - "变焦"
+    - "像素"
+    - "影像"
+    - "影像芯片"
+    - "蓝图影像"
+    - "徕卡"
+    - "哈苏"
+    - "蔡司"
+
+  oem_exclude_keywords:
+    - "best camera phone"
+    - "best android phone"
+    - "best smartphones"
+    - "camera phone for photography"
+    - "camera comparison"
+    - "camera review"
+    - "phone review"
+    - "full review"
+    - "compared"
+    - " vs "
+    - " vs."
+    - "versus"
+    - "battle of"
+    - "dxomark"
+    - "benchmark"
+    - "oled"
+    - "tv"
+    - "robotics"
+    - "showroom"
+    - "certification"
+    - "monitor"
+    - "projector"
+    - "home appliance"
+    - "榜单"
+    - "评测"
+    - "对比"
+
+  rss_sources:
+    # 论文 / 学术趋势
+    - name: "arXiv CV"
+      category: "tech"
+      type: "rss"
+      url: "https://arxiv.org/rss/cs.CV"
+
+    # 手机厂商 / 上游厂商官网：优先级高于 Google News
+    - name: "Apple Newsroom"
+      category: "oem"
+      type: "rss"
+      url: "https://www.apple.com/newsroom/rss-feed.rss"
+
+    - name: "Samsung Global Newsroom"
+      category: "oem"
+      type: "rss"
+      url: "https://news.samsung.com/global/feed"
+
+    - name: "Google Pixel Blog"
+      category: "oem"
+      type: "rss"
+      url: "https://blog.google/products/pixel/rss/"
+
+    - name: "Xiaomi Global Newsroom"
+      category: "oem"
+      type: "html"
+      url: "https://www.mi.com/global/discover/newsroom"
+
+    - name: "OPPO Newsroom"
+      category: "oem"
+      type: "html"
+      url: "https://www.oppo.com/en/newsroom/"
+
+    - name: "vivo News"
+      category: "oem"
+      type: "html"
+      url: "https://www.vivo.com/en/about-vivo/news"
+
+    - name: "Huawei Consumer News"
+      category: "oem"
+      type: "html"
+      url: "https://consumer.huawei.com/en/press/news/"
+
+    - name: "HONOR News"
+      category: "oem"
+      type: "html"
+      url: "https://www.honor.com/global/news/"
+
+    - name: "Sony Semiconductor News"
+      category: "oem"
+      type: "html"
+      url: "https://www.sony-semicon.com/en/news/"
+
+    - name: "Samsung Semiconductor Newsroom"
+      category: "oem"
+      type: "html"
+      url: "https://semiconductor.samsung.com/newsroom/news/"
+
+    # 国外手机 / 影像技术媒体 RSS：不只依赖 Google News
+    - name: "Android Authority"
+      category: "oem"
+      type: "rss"
+      url: "https://www.androidauthority.com/feed"
+
+    - name: "9to5Google"
+      category: "oem"
+      type: "rss"
+      url: "https://9to5google.com/feed/"
+
+    - name: "9to5Mac"
+      category: "oem"
+      type: "rss"
+      url: "https://9to5mac.com/feed/"
+
+    - name: "The Verge"
+      category: "tech"
+      type: "rss"
+      url: "https://www.theverge.com/rss/index.xml"
+
+    - name: "DPReview"
+      category: "tech"
+      type: "rss"
+      url: "https://www.dpreview.com/feeds/news.xml"
+
+    - name: "PetaPixel"
+      category: "tech"
+      type: "rss"
+      url: "https://petapixel.com/feed/"
+
+    # 国内技术博客 / 数码媒体 RSS：补充微信公众号、知乎之外的可订阅来源
+    - name: "IT之家"
+      category: "oem"
+      type: "rss"
+      url: "https://www.ithome.com/rss/"
+
+    - name: "少数派"
+      category: "oem"
+      type: "rss"
+      url: "https://sspai.com/feed"
+
+    - name: "爱范儿"
+      category: "oem"
+      type: "rss"
+      url: "https://www.ifanr.com/feed"
+
+    - name: "雷峰网"
+      category: "tech"
+      type: "rss"
+      url: "https://www.leiphone.com/feed"
+
+    # 通用影像技术趋势
+    - name: "Google News - Computational Photography"
+      category: "tech"
+      query: "(computational photography OR mobile imaging OR AI imaging OR neural ISP OR HDR imaging OR image sensor) when:7d -review -comparison -price"
+
+    - name: "Google News - Image Sensor Tech"
+      category: "tech"
+      query: "(image sensor OR camera sensor OR stacked sensor OR LOFIC OR LYTIA OR ISOCELL OR OmniVision) (smartphone OR mobile OR camera) when:7d -review -comparison -price"
+
+    - name: "Google News - Neural ISP AI Imaging"
+      category: "tech"
+      query: "(neural ISP OR AI ISP OR AI image processing OR low light enhancement OR HDR video OR computational imaging) when:7d -review -comparison -price"
+
+    # 手机厂商影像技术趋势
+    - name: "Google News - OEM Imaging Tech"
+      category: "oem"
+      query: "(Apple OR iPhone OR Samsung OR Galaxy OR Xiaomi OR OPPO OR vivo OR Huawei OR HONOR OR Pixel) (camera sensor OR imaging technology OR AI camera OR computational photography OR periscope telephoto OR HDR OR ISP) when:7d -\"camera review\" -\"phone review\" -DxOMark"
+
+    - name: "Google News - Apple Pixel Imaging"
+      category: "oem"
+      query: "(iPhone OR Apple OR Google Pixel OR Pixel) (computational photography OR camera sensor OR AI camera OR HDR OR image processing OR night mode) when:7d -\"camera review\" -\"phone review\" -DxOMark"
+
+    - name: "Google News - Samsung Xiaomi OPPO Vivo Imaging"
+      category: "oem"
+      query: "(Samsung OR Galaxy OR Xiaomi OR OPPO OR vivo) (camera sensor OR periscope telephoto OR variable aperture OR AI imaging OR HDR OR ISP OR LOFIC OR LYTIA) when:7d -\"camera review\" -DxOMark"
+
+    - name: "Google News - Huawei HONOR Imaging China"
+      category: "oem"
+      query: "(华为 OR 荣耀 OR Huawei OR HONOR) (影像技术 OR 影像系统 OR 传感器 OR 长焦 OR 潜望 OR 可变光圈 OR HDR OR AI影像 OR 计算摄影) when:7d -评测 -对比 -榜单"
+
+    - name: "Google News - OEM Imaging Tech China"
+      category: "oem"
+      query: "(华为 OR 小米 OR OPPO OR vivo OR 荣耀 OR 苹果 OR 三星) (影像技术 OR 影像系统 OR 传感器 OR 长焦 OR 潜望 OR HDR OR AI影像 OR 计算摄影) when:7d -评测 -对比 -榜单"
+
+    # 传感器供应商 / 上游技术
+    - name: "Google News - Mobile Sensor Vendors"
+      category: "oem"
+      query: "(Sony LYTIA OR Samsung ISOCELL OR OmniVision) (smartphone camera sensor OR image sensor OR stacked sensor OR HDR OR LOFIC) when:7d -review -comparison -price"
+
+# =================== QGenie ===================
+qgenie:
+  enabled: true
+  endpoint: "https://qgenie-api.qualcomm.com/v1/chat/completions"
+  model: "qgenie-default"
+  timeout_seconds: 60
+  api_key_env: "QGENIE_API_KEY"
+
+# =================== Notifier ===================
+notifier:
+  channels:
+    - type: "wecom"
+      enabled: false
+      webhook_url_env: "WECOM_WEBHOOK_URL"
+
+    - type: "email"
+      enabled: false
+      smtp_host: "smtp.qualcomm.com"
+      smtp_port: 587
+      from: "shiliang@qti.qualcomm.com"
+      to:
+        - "shiliang@qti.qualcomm.com"
+
+# =================== Output ===================
+output:
+  archive_dir: "output"
+  report_prefix: "techpulse"

@@ -1,0 +1,200 @@
+2026-06-09 18:04:44 | INFO | techpulse | TechPulse job started
+2026-06-09 18:04:44 | INFO | techpulse | Fetching CamX / CHI-CDK updates
+2026-06-09 18:04:44 | INFO | techpulse | Fetching external imaging trends
+2026-06-09 18:04:47 | INFO | techpulse | Generating summary
+2026-06-09 18:04:47 | INFO | techpulse | Calling QGenie for bilingual summary
+2026-06-09 18:04:47 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-09 18:04:47 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-09.md
+2026-06-09 18:04:47 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-09 18:04:47 | INFO | techpulse | TechPulse job completed
+2026-06-09 18:13:29 | INFO | techpulse | TechPulse job started
+2026-06-09 18:13:29 | INFO | techpulse | Fetching CamX / CHI-CDK updates
+2026-06-09 18:13:29 | INFO | techpulse | Fetching external imaging trends
+2026-06-09 18:13:32 | INFO | techpulse | Generating summary
+2026-06-09 18:13:32 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-09 18:13:32 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-09 18:13:32 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-09.md
+2026-06-09 18:13:32 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-09 18:13:32 | INFO | techpulse | TechPulse job completed
+2026-06-09 18:13:33 | INFO | techpulse | TechPulse job started
+2026-06-09 18:13:33 | INFO | techpulse | Fetching CamX / CHI-CDK updates
+2026-06-09 18:13:33 | INFO | techpulse | Fetching external imaging trends
+2026-06-09 18:13:35 | INFO | techpulse | Generating summary
+2026-06-09 18:13:35 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-09 18:13:35 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-09 18:13:35 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-09.md
+2026-06-09 18:13:35 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-09 18:13:35 | INFO | techpulse | TechPulse job completed
+2026-06-09 18:14:27 | INFO | techpulse | TechPulse job started
+2026-06-09 18:14:27 | INFO | techpulse | Fetching CamX / CHI-CDK updates
+2026-06-09 18:14:27 | INFO | techpulse | Fetching external imaging trends
+2026-06-09 18:14:29 | INFO | techpulse | Generating summary
+2026-06-09 18:14:29 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-09 18:14:29 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-09 18:14:29 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-09.md
+2026-06-09 18:14:29 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-09 18:14:29 | INFO | techpulse | TechPulse job completed
+2026-06-09 18:25:07 | INFO | techpulse | TechPulse job started
+2026-06-09 18:25:07 | INFO | techpulse | Fetching CamX / CHI-CDK updates
+2026-06-09 18:25:07 | INFO | techpulse | Fetching external imaging trends
+2026-06-09 18:25:11 | INFO | techpulse | Generating summary
+2026-06-09 18:25:11 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-09 18:25:11 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-09 18:25:11 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-09.md
+2026-06-09 18:25:11 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-09 18:25:11 | INFO | techpulse | TechPulse job completed
+2026-06-09 18:26:07 | INFO | techpulse | TechPulse job started
+2026-06-09 18:26:07 | INFO | techpulse | Fetching CamX / CHI-CDK updates
+2026-06-09 18:26:07 | INFO | techpulse | Fetching external imaging trends
+2026-06-09 18:26:10 | INFO | techpulse | Generating summary
+2026-06-09 18:26:10 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-09 18:26:10 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-09 18:26:10 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-09.md
+2026-06-09 18:26:10 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-09 18:26:10 | INFO | techpulse | TechPulse job completed
+2026-06-09 18:27:48 | INFO | techpulse | TechPulse job started
+2026-06-09 18:27:48 | INFO | techpulse | Fetching CamX / CHI-CDK updates
+2026-06-09 18:27:48 | INFO | techpulse | Fetching external imaging trends
+2026-06-09 18:27:51 | INFO | techpulse | Generating summary
+2026-06-09 18:27:51 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-09 18:27:51 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-09 18:27:51 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-09.md
+2026-06-09 18:27:51 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-09 18:27:51 | INFO | techpulse | TechPulse job completed
+2026-06-09 18:28:58 | INFO | techpulse | TechPulse job started
+2026-06-09 18:28:58 | INFO | techpulse | Fetching CamX / CHI-CDK updates
+2026-06-09 18:28:58 | INFO | techpulse | Fetching external imaging trends
+2026-06-09 18:29:01 | INFO | techpulse | Generating summary
+2026-06-09 18:29:01 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-09 18:29:01 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-09 18:29:01 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-09.md
+2026-06-09 18:29:01 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-09 18:29:01 | INFO | techpulse | TechPulse job completed
+2026-06-10 09:28:01 | INFO | techpulse | TechPulse job started
+2026-06-10 09:28:01 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 09:28:04 | INFO | techpulse | Generating summary
+2026-06-10 09:28:04 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 09:28:04 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 09:28:04 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 09:28:04 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 09:28:04 | INFO | techpulse | TechPulse job completed
+2026-06-10 09:29:09 | INFO | techpulse | TechPulse job started
+2026-06-10 09:29:09 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 09:29:11 | INFO | techpulse | Generating summary
+2026-06-10 09:29:11 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 09:29:11 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 09:29:11 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 09:29:11 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 09:29:11 | INFO | techpulse | TechPulse job completed
+2026-06-10 09:40:08 | INFO | techpulse | TechPulse job started
+2026-06-10 09:40:08 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 09:40:15 | INFO | techpulse | Generating summary
+2026-06-10 09:40:15 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 09:40:15 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 09:40:15 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 09:40:15 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 09:40:15 | INFO | techpulse | TechPulse job completed
+2026-06-10 09:41:04 | INFO | techpulse | TechPulse job started
+2026-06-10 09:41:04 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 09:41:09 | INFO | techpulse | Generating summary
+2026-06-10 09:41:09 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 09:41:09 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 09:41:09 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 09:41:09 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 09:41:09 | INFO | techpulse | TechPulse job completed
+2026-06-10 09:58:20 | INFO | techpulse | TechPulse job started
+2026-06-10 09:58:20 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 09:58:34 | INFO | techpulse | Generating summary
+2026-06-10 09:58:34 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 09:58:34 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 09:58:34 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 09:58:34 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 09:58:34 | INFO | techpulse | TechPulse job completed
+2026-06-10 10:01:41 | INFO | techpulse | TechPulse job started
+2026-06-10 10:01:41 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 10:02:01 | INFO | techpulse | Generating summary
+2026-06-10 10:02:01 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 10:02:01 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 10:02:01 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 10:02:01 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 10:02:01 | INFO | techpulse | TechPulse job completed
+2026-06-10 10:05:01 | INFO | techpulse | TechPulse job started
+2026-06-10 10:05:01 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 10:05:21 | INFO | techpulse | Generating summary
+2026-06-10 10:05:21 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 10:05:21 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 10:05:21 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 10:05:21 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 10:05:21 | INFO | techpulse | TechPulse job completed
+2026-06-10 10:06:37 | INFO | techpulse | TechPulse job started
+2026-06-10 10:06:37 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 10:06:50 | INFO | techpulse | Generating summary
+2026-06-10 10:06:50 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 10:06:50 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 10:06:50 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 10:06:50 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 10:06:50 | INFO | techpulse | TechPulse job completed
+2026-06-10 10:08:16 | INFO | techpulse | TechPulse job started
+2026-06-10 10:08:16 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 10:08:33 | INFO | techpulse | Generating summary
+2026-06-10 10:08:33 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 10:08:33 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 10:08:33 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 10:08:33 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 10:08:33 | INFO | techpulse | TechPulse job completed
+2026-06-10 10:27:56 | INFO | techpulse | TechPulse job started
+2026-06-10 10:27:56 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 10:28:23 | INFO | techpulse | Generating summary
+2026-06-10 10:28:23 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 10:28:23 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 10:28:23 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 10:28:23 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 10:28:23 | INFO | techpulse | TechPulse job completed
+2026-06-10 10:41:32 | INFO | techpulse | TechPulse job started
+2026-06-10 10:41:32 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 10:42:15 | INFO | techpulse | Generating summary
+2026-06-10 10:42:15 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 10:42:15 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 10:42:15 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 10:42:15 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 10:42:15 | INFO | techpulse | TechPulse job completed
+2026-06-10 10:44:45 | INFO | techpulse | TechPulse job started
+2026-06-10 10:44:45 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 10:45:21 | INFO | techpulse | Generating summary
+2026-06-10 10:45:21 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 10:45:21 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 10:45:21 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 10:45:21 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 10:45:21 | INFO | techpulse | TechPulse job completed
+2026-06-10 11:01:23 | INFO | techpulse | TechPulse job started
+2026-06-10 11:01:23 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 11:02:01 | INFO | techpulse | Generating summary
+2026-06-10 11:02:01 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 11:02:01 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 11:02:01 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 11:02:01 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 11:02:01 | INFO | techpulse | TechPulse job completed
+2026-06-10 11:20:10 | INFO | techpulse | TechPulse job started
+2026-06-10 11:20:10 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 11:20:51 | INFO | techpulse | Generating summary
+2026-06-10 11:20:51 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 11:20:51 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 11:20:51 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 11:20:51 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 11:20:51 | INFO | techpulse | TechPulse job completed
+2026-06-10 12:31:51 | INFO | techpulse | TechPulse job started
+2026-06-10 12:31:51 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 12:32:24 | INFO | techpulse | Generating summary
+2026-06-10 12:32:24 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 12:32:24 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 12:32:24 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 12:32:24 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 12:32:24 | INFO | techpulse | TechPulse job completed
+2026-06-10 13:21:41 | INFO | techpulse | TechPulse job started
+2026-06-10 13:21:41 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 13:22:12 | INFO | techpulse | Generating summary
+2026-06-10 13:22:12 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 13:22:12 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 13:22:12 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 13:22:12 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 13:22:12 | INFO | techpulse | TechPulse job completed
