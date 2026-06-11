@@ -2,63 +2,48 @@
 
 ## 1. 外部影像技术趋势
 
-- Viltrox's latest APS-C lenses are made for portraits
-  来源/时间：DPReview | Mon, 08 Jun 2026 13:00:00 Z
-  链接：https://www.dpreview.com/news/6357360508/viltrox-75-90mm-lenses-aps-c
-- The Camp Snap 2 wants to be your favorite screen-free camera – but there's a catch
-  来源/时间：DPReview | Wed, 03 Jun 2026 14:00:00 Z
-  链接：https://www.dpreview.com/reviews/the-camp-snap-2-wants-to-be-your-favorite-screen-free-camera
-- A Close Look at the Extremely Rare, Foveon-Powered Polaroid X530
-  来源/时间：PetaPixel | Tue, 09 Jun 2026 14:54:06 +0000
-  链接：https://petapixel.com/2026/06/09/a-close-look-at-the-extremely-rare-foveon-powered-polaroid-x530/
-- Sony Announces RIALTO 65 Image Sensor Block for VENICE 2, Targeting 2027 Release - Sports Video Group
-  来源/时间：Google News - Image Sensor Tech | Sports Video Group | Thu, 04 Jun 2026 13:47:27 GMT
-  链接：https://news.google.com/rss/articles/CBMiuwFBVV95cUxPUExPa2pBNmc3UjZLV0d3WVc4TWhaTlY3TGNuUWswR1ZGcnJqbnRHaGlTTVZlSFl4RzMxNDA1czgzbkQ1WE8wWUVXRjFCQXJIdGloRS1oNnllcV9IckF4bDM3VHlhU2VGbmtmbUs2OTRkUW11RlM2bXFtcVRGZGpYNG81YS0wdXZlOTlub0ZxMjNoUWJSUGZIYkxobXFpbGw4T2NRMzZkbm8zNTRJeWx2V2U2XzU5bEkzQVBB?oc=5
-- Accessible Wearable Image Sensors - Trend Hunter
-  来源/时间：Google News - Image Sensor Tech | Trend Hunter | Wed, 03 Jun 2026 13:40:01 GMT
-  链接：https://news.google.com/rss/articles/CBMiWkFVX3lxTFBBYTJZeTZ6ZFBlR3Q2N0xUMzJ3QTh2M3dNNkFSVGllQndwazdzdXl2MUFYYzdrMjQxYVg2XzNaTnNXUXU1dXpiRjJHd1dVcmZMQUdWY09Ccm9aZ9IBX0FVX3lxTE1vUFprOEk4YncwRFc1aFFqOFVZeWc0ZUNvYlYxdEp0c2hBaG01U3duTmtQWWlDWEh5YWYtLVM4ZVZGVFJha2M5RHp6OUxMZl9yTElfQUVHdEtDN1hhTjd3?oc=5
-- US Firm Tests Sensor That Identifies Explosive Payloads on Drones - The Defense Post
-  来源/时间：Google News - Image Sensor Tech | The Defense Post | Fri, 05 Jun 2026 12:15:27 GMT
-  链接：https://news.google.com/rss/articles/CBMidkFVX3lxTE1QRVJIaGhFNkVobXFtcG1CNEc3a1loNG9jZ09feHdRNGdFd1BfblRxWXk4OVZIM2tIRWJYQWIyWFRVMVBMMVNuOUZZWWFoNHBUbHhWRmFrSFdidVlXRzRIa0dObUNrbW0zeVhrZTVSTEo3c182a1HSAXtBVV95cUxOam03bkhjUUVNRVBZSkhrajdJdXJLRUktSFBoNGplVkNFOWZ0WHNSRURYX2NGZWpwb1ZmMEpaWVdCNlVneVlRRFpOMTBkZF9ib1Nvc3M0MGZwSjFXempkcHNiY0d1UzF2cUhLZlpVOWdLd2lIVVNsOXZJOVU?oc=5
+- Vadzo Imaging Launches Falcon-246CRS: 2MP Onsemi HyperLux(TM) AR0246 1080p HDR USB 3.0 Camera with 120dB eHDR, ALTM, and Wake-on-Motion for Always-On Embedded Vision - Newswire.com
+  来源/时间：Google News - Image Sensor Tech | Newswire.com | Fri, 05 Jun 2026 14:00:00 GMT
+  链接：https://news.google.com/rss/articles/CBMiqgFBVV95cUxQWHhndEVCSnk0bE9sbXVNaEdSODQwT1JObzlQNFlCTm0yWmdJcklYMmgtRjJWQzk2S0QtR0tqS2E2S0hvRTJ1ckR6aWFKbmdtWWVORWVndEJUcFZ4VW9fUmRaY3NobXNPUmVzTXQwQk9CSGI0TlpjRjh1b3JfNS1Bcnd5QU8tRnAxQndwVVpZUDRfdDczVVpUbXFSYV9SaUNkRlVSVDVmUWxvZw?oc=5
 - Oppo and Vivo’s handheld gimbal may share the same 200MP camera sensor - MSN
   来源/时间：Google News - Image Sensor Tech | MSN | Fri, 05 Jun 2026 11:56:28 GMT
   链接：https://news.google.com/rss/articles/CBMilwNBVV95cUxPdkV0YU5DYk5IQnpmQjlEOWtrM0djODF6MUl1aVNkeFhMQ2h6QkFCcGUwR3BEVU1XUERxWkJ0MFphbDBLT2VxRUcxZHRrYUlFQlJackMxdmU3SkItQlB6RElJWGpNNG05VDIzNmxwMGVqUlR2MTBwOEM1RlNaNWhpa0RjTmZ2LUtwYkw4XzN0LVBYSDk3NUdzQzItUk5KZ1N0SHhBWDdiSzdoZ0ZRMVNGX1o4dU1OVElNbGdvS1dodW5FdDZqQmZnVl93VDJvUDJmRTZwRmNNYkxqYkYzTVhhdGE1V05oZVEwRXVCR1VULUNXMXo4eXo2NG13Y25EWEFwNEd6T0xlVHQybDZhX01KS1c4VmMwQkpLNE9ZYkhsak1aQXpyTTdKSWphTWtKb2NsRlA0c2VSMHhMYzY0WGNlVV9aR1VYRjFZeGtyY0VrcHZHekdHS0I3dzM0TWtpaTk2SkRsUnNnT0N4OFFoM1VNWWlSQS04VUFSQnVjUWpqZUpMbHRMdmtnazJfcEFJd0paVjNhb2RpNA?oc=5
-- Development Of RIALTO 65, An Image Sensor Block That Expands The Digital Cinema Camera 'VENICE 2' To 65Mm Format - Mena FN
-  来源/时间：Google News - Image Sensor Tech | Mena FN | Fri, 05 Jun 2026 09:45:20 GMT
-  链接：https://news.google.com/rss/articles/CBMi1gFBVV95cUxQYWZvVzUxWlgzMk5ld0p2RDBGU1pNbkxydTMxZDJ0SzZVMHVyQXd0UEM2WVVtdWFFTFpiVFp0UTcyTnVvTktaOG8wdjM3cXAwbXVFc3lsUXc2b056V0FpQ2FuSmlxQkh1MlpxM2EzbGowUk1WSkFBam1EQ0tfeENMOW5iQU1PYjJvSThBd0JWblk5N1N0aWh4QXRoX2I4dEJhOUxlOS1PR01BWDJySzZSUHQxMXlqcjdjMmFaWW5IR0ZqSjhvLTJGWnpGaDBwSHh3RVZJcUlB?oc=5
+- Vadzo Imaging Introduces Its Complete HDR USB Camera Portfolio Online with no MOQ - Weekly Voice
+  来源/时间：Google News - Image Sensor Tech | Weekly Voice | Wed, 10 Jun 2026 04:09:22 GMT
+  链接：https://news.google.com/rss/articles/CBMirAFBVV95cUxQOUhpcEdKMVhUaTd5Yjd1TlNoYUpTSTN0M1FwVHMxLTZ1WXRPOXViWVFMb0xmY3l0cHdlMWE0TDJ2VW9UcTZ5ZFEwMGV2VV95aE5JNjR6LUt5Qml6M2tfczBJclFrQkcxOEFnVlRIZ2I2dWU5MW5QZ3dWUGtmVkhfTS1vN04wY0NRVHJFR29ub1ZrSk5manowV3d6SEVMY3lUNlBkYXZrZGZrWUgy?oc=5
 
 ## 2. 大手机厂商影像发展趋势
 
-- OPPO Pad 5 Matte Display Edition
-  来源/时间：OPPO Newsroom | OPPO Newsroom
-  链接：https://www.oppo.com/en/accessories/oppo-pad-5-matte-display-edition/
-- OPPO Pad 3 Matte Display Edition
-  来源/时间：OPPO Newsroom | OPPO Newsroom
-  链接：https://www.oppo.com/en/accessories/oppo-pad-3-matte-display-edition/
-- HDR Technology
-  来源/时间：Samsung Semiconductor Newsroom | Samsung Semiconductor Newsroom
-  链接：https://semiconductor.samsung.com/technologies/image-sensor/hdr-technology/
-- Apple Photos users will finally be able to share albums with their Android friends
-  来源/时间：Android Authority | Mon, 08 Jun 2026 20:43:35 +0000
-  链接：https://www.androidauthority.com/apple-photos-cross-platform-sharing-3675655/
-- Apple’s new Siri camera trick is giving strong Google Lens vibes
-  来源/时间：Android Authority | Mon, 08 Jun 2026 20:24:57 +0000
-  链接：https://www.androidauthority.com/apple-siri-mode-in-camera-3675658/
-- Google Photos needs an answer to Apple Photos’ new reframing tool
-  来源/时间：Android Authority | Mon, 08 Jun 2026 19:30:57 +0000
-  链接：https://www.androidauthority.com/apple-photos-spatial-reframing-3675636/
-- First look: The Galaxy S26 FE just popped up with a real-world image
-  来源/时间：Android Authority | Sun, 07 Jun 2026 15:58:01 +0000
-  链接：https://www.androidauthority.com/galaxy-s26-fe-wpc-image-3675280/
-- 7 photo gallery apps you should use instead of Samsung Gallery
-  来源/时间：Android Authority | Sun, 07 Jun 2026 11:30:50 +0000
-  链接：https://www.androidauthority.com/samsung-gallery-apps-3673569/
-- Galaxy S26 FE leaks in hands-on image with an updated, slightly funky camera bump
-  来源/时间：9to5Google | Sun, 07 Jun 2026 01:35:00 +0000
-  链接：https://9to5google.com/2026/06/06/samsung-galaxy-s26-fe-leak/
-- Google Photos for Android rolling out saved Stickers folder
-  来源/时间：9to5Google | Wed, 03 Jun 2026 20:49:55 +0000
-  链接：https://9to5google.com/2026/06/03/google-photos-stickers-folder-android/
+- 你的小众IP归属地，背后发生着一场场“抢人”大战#鲸鸿动能#华为影像XMAGE#一起冲向盛夏 - 财富号
+  来源/时间：Google News - Huawei HONOR Imaging China | 财富号 | Fri, 05 Jun 2026 09:20:00 GMT
+  链接：https://news.google.com/rss/articles/CBMia0FVX3lxTE52RkVueVVPNTc0cUNlczJTQnVOMk5mV3JvZnpRakdTNjdRTWFiTC1rYU9MaDB1YUVqZ2thUFRkSW5Tc3VCVWFYVHhpMGx0VlNFRnB3clB3OGdnWmtmU0cxbXZEYVd3WEcwZnRN?oc=5
+- Xiaomi 18 Pro Max to feature new-gen LOFIC-powered 200MP camera - Huawei Central
+  来源/时间：Google News - OEM Imaging Tech | Huawei Central | Thu, 04 Jun 2026 13:00:03 GMT
+  链接：https://news.google.com/rss/articles/CBMimgFBVV95cUxNYmVrZk1uQWpxRGd5ZmhPMy14Vk1NRlpIc20tOGdDNk1wLWhwcXRReVV2ZzlIWEtDaEdBRDU1dXBIclU1VWhQRDV2SXE1b19jcnhhYWhnLVlseTF0SjZaaGRiNmk4a1NzbGhWQWN6YXlDME5MWkRrUW9zS2R4enl0TjFPMkdMRmJ2U1NTU0o5Nk9pSFRqRm5BcGpB0gGfAUFVX3lxTE1ZNnJHbXNaYkM5djdSdExZRTgxY3hFUTZoQW15WG5sdXQwSVhoWUJyaEc5S0gzN1V0SUxYYUNjSE1EUHF1ckNWTHY2NVltZlJQcmM5WWVYZmJMdDRtOTFORlFBbFFGSlhmenlKSTBjWFJGZWlRbDd2U0tQVWJ4SlplSG5lQXJKVmFRa3VlTlJMeWhHNzN4WF9fT3Bna3hucw?oc=5
+- 一加 Turbo 6X Pro 手机发布：8000mAh 电池、天玑 7400 SUPER 芯片，首发 1699 元起
+  来源/时间：IT之家 | Wed, 10 Jun 2026 07:01:04 GMT
+  链接：https://www.ithome.com/0/962/445.htm
+- 全系徕卡潜望长焦，7000mAh大电池，小米17T系列太有诚意了 - 新浪网
+  来源/时间：Google News - Xiaomi OPPO vivo Imaging China | 新浪网 | Tue, 09 Jun 2026 08:58:39 GMT
+  链接：https://news.google.com/rss/articles/CBMidEFVX3lxTE1wUUtudWVaOWZQOXpQX25TYmtjYWpVeGp0TjVDRnpxb2xKXzJhaW55S1pOUG1uWmNMZFdWZmt6TUFWdC1xSmh6ZHM1bWFXZ2RMdzBEM1pZQi1adDNTYWstdkpqMWVBNF90UHZldk9MS0RVUFpC?oc=5
+- Samsung Galaxy S27 Ultra Camera Leak Points to 200MP Sensor and Variable Aperture - TechJuice
+  来源/时间：Google News - Samsung Xiaomi OPPO Vivo Imaging | TechJuice | Mon, 08 Jun 2026 15:37:27 GMT
+  链接：https://news.google.com/rss/articles/CBMiqwFBVV95cUxPekpFWjFUM2lHbERKS3pNVWxVT2VxbTBIc1FXMzNXQkoxRVFMa2ViSDhKUXV6S2VZTTFWc1FUbDFWRkhWMHc5NEltNk5JN0hadmdaWDlMX3hGbnVwaFZkUVgzTHdQYmhOd0FVVEJFSnl2ZjFUMVZ1eFdJZ2FtYU1BVjZiRXJneUlZOXhKR3JMWWVoOHJBR01wLXZPSDRSVjhtN1VBNU9nemJNZkk?oc=5
+- 小米17 Ultra开始跌价，徕卡2亿+徕卡1英寸+6.9英寸2K大屏，米粉久等了 - 搜狐网
+  来源/时间：Google News - OEM Imaging Tech China | 搜狐网 | Sat, 06 Jun 2026 03:16:08 GMT
+  链接：https://news.google.com/rss/articles/CBMijAFBVV95cUxQVjNSRkdhQ2MyNzJIRF9wZTFkV2VUMnF4cjd4YzlYUDl0LUxid1pSZjZzd2dCT2pzNVJYaHpuendLaEFFNDhRSWhCNjNlOUxlbU8wT2o3RURZaGg2c1gxRjJfZ2oxa09PNWNuQXctLWNOMEwyMDk3WGdKMUlJc0VCN3dYTmVqaVZfTWZxRA?oc=5
+- Xiaomi unveils the 17T Series, an imaging flagship built with an advanced Leica 5x telephoto camera - nylon.com.sg
+  来源/时间：Google News - OEM Imaging Tech | nylon.com.sg | Fri, 05 Jun 2026 07:39:34 GMT
+  链接：https://news.google.com/rss/articles/CBMivAFBVV95cUxPQTNfV3BRd2FYMHJzdXhJZ25HM3JTSUltNW9CRjhGQXhiUnNVVkgwVEo1NENDX3FVZFdLdWwyRDlKMy1Ucmo1RlhhdWZpcklwVS1xdXJnaHFBZVIwanZENXo3LWdGQmlLZlpRdnQzbzRqUnpmSkxYeVNadUV4WVVCb3g0bzBkNmRaN0FDanhyUGxvWmRobFNSRVhDSy00aklXNTN2ZUxDSy01TlVONjAzX2NCb2UxdjRjUFRsMA?oc=5
+- 荣耀600 Pro拍照体验_新浪新闻 - 手机新浪网
+  来源/时间：Google News - Huawei HONOR Imaging China | 手机新浪网 | Fri, 05 Jun 2026 09:35:00 GMT
+  链接：https://news.google.com/rss/articles/CBMiY0FVX3lxTE9sb1IxLUNoSUVwMXRpNnVrQ2ljMTZWc0dRUFhPcGw0Y1pGaHJFaGpGb3FCT1ZDTUJSajZsdUdtWnN5czNjZkVZUmM1SmdjNDZFVnN5VGlVaWFHZDhVOWs2VmF4SQ?oc=5
+- Xiaomi 18 Pro Max May Debut With 200MP Main and Telephoto Cameras - TechJuice
+  来源/时间：Google News - Samsung Xiaomi OPPO Vivo Imaging | TechJuice | Fri, 05 Jun 2026 08:34:55 GMT
+  链接：https://news.google.com/rss/articles/CBMilgFBVV95cUxQY2FfbjlRX0kzTmxhQ0lKYWtQR2ZJX1gxUnRJOHptZGtocHotdDgzMGdCSjFLdkdmMkZYUmlxVU83cGZXNUhDRF9LX25xaDZRRF90N0E1aXFYSi1DRkJKWGRWaGdCWVJSakRxMGExUkxrWkZRWWZnUUVQWllEYXE2dG41Tl9WWlRsZkNBQWFhQVloYUxha2c?oc=5
+- 小米18ProMax影像规格媲美Ultra双2亿像素后摄！首发新技术主摄#小米18ProMax#小米18#小米 - 财富号
+  来源/时间：Google News - Xiaomi OPPO vivo Imaging China | 财富号 | Thu, 04 Jun 2026 09:32:00 GMT
+  链接：https://news.google.com/rss/articles/CBMia0FVX3lxTE9BNnNodnd0VF9iakZwaW0tUkkydjNJUDlnSGtmZE8wVWpxdmdLaXlxckNTX21zcUVrMF9DSzFSbkxOaFFrYUk0SnhnaVZKVklXejV4RGpQTnRYVnNPWTFZY054X1gzTDhJUnRV?oc=5
 
 ---
 由 TechPulse Auto-Push 自动生成。

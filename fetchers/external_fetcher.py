@@ -1,4 +1,5 @@
 import re
+from collections import OrderedDict, defaultdict, deque
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
@@ -11,7 +12,7 @@ import urllib3
 from requests.exceptions import SSLError
 
 
-GOOGLE_NEWS_RSS = "https://news.google.com/rss/search?q={query}&hl=en-US&gl=US&ceid=US:en"
+GOOGLE_NEWS_RSS = "https://news.google.com/rss/search?q={query}&hl={hl}&gl={gl}&ceid={ceid}"
 
 MONTHS_PATTERN = (
     "January|February|March|April|May|June|July|August|September|October|November|December|"
@@ -34,6 +35,9 @@ GENERIC_HTML_TITLES = {
     "read more",
     "view all",
 }
+
+DOMESTIC_RSS_SOURCES = {"IT之家", "少数派", "爱范儿", "雷峰网"}
+OFFICIAL_SOURCE_HINTS = ("Newsroom", "News", "Blog", "Semiconductor")
 
 
 class SimpleLinkParser(HTMLParser):
@@ -94,7 +98,12 @@ def _build_source_url(source: Dict[str, Any]) -> str:
 
     query = source.get("query", "")
     if query:
-        return GOOGLE_NEWS_RSS.format(query=quote_plus(query))
+        return GOOGLE_NEWS_RSS.format(
+            query=quote_plus(query),
+            hl=source.get("hl", "en-US"),
+            gl=source.get("gl", "US"),
+            ceid=source.get("ceid", "US:en"),
+        )
 
     return ""
 
@@ -166,7 +175,7 @@ def _parse_entry_time(entry: Dict[str, Any]) -> Optional[datetime]:
 def _is_recent(
     entry: Dict[str, Any],
     lookback_days: int,
-    allow_undated_html: bool = True,
+    allow_undated_html: bool = False,
 ) -> bool:
     if lookback_days <= 0:
         return True
@@ -337,6 +346,143 @@ def _fetch_source_entries(source: Dict[str, Any], source_url: str) -> List[Dict[
     return _fetch_rss_entries(source, source_url)
 
 
+def _contains_chinese(text: str) -> bool:
+    return any("\u4e00" <= char <= "\u9fff" for char in text)
+
+
+def _item_source_group(item: Dict[str, Any]) -> str:
+    source = item.get("source", "")
+    category = item.get("category", "")
+    combined_text = " ".join(
+        [
+            item.get("source", ""),
+            item.get("publisher", ""),
+            item.get("title", ""),
+        ]
+    )
+
+    if source.startswith("Google News"):
+        if category == "tech":
+            return "tech_google"
+        if "China" in source or _contains_chinese(combined_text):
+            return "cn_google"
+        return "global_google"
+
+    if source == "arXiv CV":
+        return "academic"
+
+    if source in DOMESTIC_RSS_SOURCES:
+        return "cn_rss"
+
+    if any(hint in source for hint in OFFICIAL_SOURCE_HINTS):
+        return "official"
+
+    return "media"
+
+
+def _build_source_queues(items: List[Dict[str, Any]]) -> OrderedDict:
+    source_queues: OrderedDict = OrderedDict()
+    for item in items:
+        source = item.get("source", "unknown")
+        if source not in source_queues:
+            source_queues[source] = deque()
+        source_queues[source].append(item)
+    return source_queues
+
+
+def _pop_from_source_queues(
+    source_queues: OrderedDict,
+    source_counts: Dict[str, int],
+    source_cap: int,
+) -> Optional[Dict[str, Any]]:
+    for source in list(source_queues.keys()):
+        queue = source_queues[source]
+        if not queue:
+            source_queues.pop(source, None)
+            continue
+
+        if source_cap and source_counts[source] >= source_cap:
+            continue
+
+        item = queue.popleft()
+        source_counts[source] += 1
+
+        if queue:
+            source_queues.move_to_end(source)
+        else:
+            source_queues.pop(source, None)
+
+        return item
+
+    return None
+
+
+def _diversify_items(
+    items: List[Dict[str, Any]],
+    max_items: int,
+    category: str,
+) -> List[Dict[str, Any]]:
+    """Return a balanced list so no source group can starve the others.
+
+    The fetcher still respects source order inside each group, but the final
+    list is interleaved across Google News, domestic RSS, official sources, and
+    media RSS. This prevents fixes like "move China Google News to the top" from
+    hiding all other useful sources in the final report.
+    """
+    if max_items <= 0 or not items:
+        return []
+
+    if category == "oem":
+        group_order = ["cn_google", "global_google", "cn_rss", "official", "media"]
+        source_cap = 2
+    else:
+        group_order = ["academic", "tech_google", "cn_rss", "media", "official"]
+        source_cap = 4
+
+    grouped: OrderedDict = OrderedDict((group, []) for group in group_order)
+    for item in items:
+        group = _item_source_group(item)
+        if group not in grouped:
+            grouped[group] = []
+        grouped[group].append(item)
+
+    group_queues: OrderedDict = OrderedDict(
+        (group, _build_source_queues(group_items))
+        for group, group_items in grouped.items()
+        if group_items
+    )
+    selected: List[Dict[str, Any]] = []
+    source_counts: Dict[str, int] = defaultdict(int)
+
+    def drain(cap: int) -> None:
+        made_progress = True
+        while len(selected) < max_items and made_progress:
+            made_progress = False
+            for group in list(group_queues.keys()):
+                source_queues = group_queues.get(group)
+                if not source_queues:
+                    group_queues.pop(group, None)
+                    continue
+
+                item = _pop_from_source_queues(source_queues, source_counts, cap)
+                if item:
+                    selected.append(item)
+                    made_progress = True
+
+                if not source_queues:
+                    group_queues.pop(group, None)
+
+                if len(selected) >= max_items:
+                    break
+
+    drain(source_cap)
+
+    if len(selected) < max_items:
+        drain(0)
+
+    return selected[:max_items]
+
+
 def fetch_external_trends(config: Dict[str, Any]) -> Dict[str, List[Dict[str, Any]]]:
     """Fetch external tech trends and smartphone OEM imaging trends.
 
@@ -349,7 +495,7 @@ def fetch_external_trends(config: Dict[str, Any]) -> Dict[str, List[Dict[str, An
     lookback_days = int(external_cfg.get("lookback_days", 30))
     max_items_per_source = int(external_cfg.get("max_items_per_source", 5))
     max_items_total = int(external_cfg.get("max_items_total", 20))
-    allow_undated_html = bool(external_cfg.get("allow_undated_html", True))
+    allow_undated_html = bool(external_cfg.get("allow_undated_html", False))
 
     results: Dict[str, List[Dict[str, Any]]] = {
         "tech": [],
@@ -431,9 +577,6 @@ def fetch_external_trends(config: Dict[str, Any]) -> Dict[str, List[Dict[str, An
                 if matched_count >= max_items_per_source:
                     break
 
-            if len(results["tech"]) + len(results["oem"]) >= max_items_total:
-                break
-
         except Exception as exc:
             results["errors"].append(
                 {
@@ -442,7 +585,7 @@ def fetch_external_trends(config: Dict[str, Any]) -> Dict[str, List[Dict[str, An
                 }
             )
 
-    results["tech"] = results["tech"][:max_items_total]
-    results["oem"] = results["oem"][:max_items_total]
+    results["tech"] = _diversify_items(results["tech"], max_items_total, "tech")
+    results["oem"] = _diversify_items(results["oem"], max_items_total, "oem")
 
     return results

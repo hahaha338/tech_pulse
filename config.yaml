@@ -31,6 +31,21 @@ external:
     - "world model"
     - "buying guide"
     - "still-life"
+    - "lens"
+    - "lenses"
+    - "photographer"
+    - "camera review"
+    - "screen-free camera"
+    - "drone"
+    - "drones"
+    - "explosive"
+    - "payload"
+    - "defense"
+    - "cinema"
+    - "digital cinema"
+    - "venice"
+    - "x-ray"
+    - "wearable"
 
   oem_brands:
     - "Apple"
@@ -58,7 +73,6 @@ external:
 
   # 手机厂商影像趋势必须命中这些技术词之一，避免只抓到榜单/评测
   oem_keywords:
-    - "camera"
     - "camera system"
     - "camera upgrade"
     - "camera module"
@@ -66,8 +80,7 @@ external:
     - "image sensor"
     - "imaging technology"
     - "computational photography"
-    - "photography"
-    - "photo"
+    - "mobile photography"
     - "image processing"
     - "AI camera"
     - "AI imaging"
@@ -124,6 +137,8 @@ external:
     - "camera review"
     - "phone review"
     - "full review"
+    - "review"
+    - "comparison"
     - "compared"
     - " vs "
     - " vs."
@@ -133,15 +148,40 @@ external:
     - "benchmark"
     - "oled"
     - "tv"
+    - "display"
+    - "screen"
+    - "matte display"
+    - "pad "
+    - "tablet"
+    - "accessories"
     - "robotics"
     - "showroom"
     - "certification"
     - "monitor"
     - "projector"
     - "home appliance"
+    - "photos app"
+    - "apple photos"
+    - "google photos"
+    - "gallery"
+    - "photo gallery"
+    - "album"
+    - "albums"
+    - "stickers"
+    - "wallpaper"
+    - "icons"
+    - "designs reportedly"
+    - "hands-on image"
+    - "real-world image"
+    - "camera bump"
+    - "compact camera"
+    - "android app"
+    - "ultrawide displays"
     - "榜单"
     - "评测"
     - "对比"
+    - "推荐"
+    - "降价"
 
   rss_sources:
     # 论文 / 学术趋势
@@ -281,32 +321,33 @@ external:
 
     - name: "Google News - Huawei HONOR Imaging China"
       category: "oem"
-      query: "(华为 OR 荣耀 OR Huawei OR HONOR) (影像技术 OR 影像系统 OR 传感器 OR 长焦 OR 潜望 OR 可变光圈 OR HDR OR AI影像 OR 计算摄影) when:7d -评测 -对比 -榜单"
+      query: "(华为 OR 荣耀 OR Huawei OR HONOR) (影像 OR 相机 OR 摄像头 OR 拍照 OR 镜头 OR 长焦 OR 潜望 OR 主摄 OR 传感器 OR 可变光圈 OR HDR OR AI影像 OR 计算摄影 OR XMAGE OR 雅顾) when:7d -评测 -对比 -榜单 -推荐 -降价"
+      hl: "zh-CN"
+      gl: "CN"
+      ceid: "CN:zh-Hans"
+
+    - name: "Google News - Xiaomi OPPO vivo Imaging China"
+      category: "oem"
+      query: "(小米 OR OPPO OR vivo OR Xiaomi) (影像 OR 相机 OR 摄像头 OR 拍照 OR 镜头 OR 长焦 OR 潜望 OR 主摄 OR 传感器 OR 计算摄影 OR AI影像 OR 蓝图影像 OR 徕卡 OR 哈苏 OR 蔡司 OR LYTIA OR LOFIC) when:7d -评测 -对比 -榜单 -推荐 -降价"
+      hl: "zh-CN"
+      gl: "CN"
+      ceid: "CN:zh-Hans"
 
     - name: "Google News - OEM Imaging Tech China"
       category: "oem"
-      query: "(华为 OR 小米 OR OPPO OR vivo OR 荣耀 OR 苹果 OR 三星) (影像技术 OR 影像系统 OR 传感器 OR 长焦 OR 潜望 OR HDR OR AI影像 OR 计算摄影) when:7d -评测 -对比 -榜单"
+      query: "(华为 OR 小米 OR OPPO OR vivo OR 荣耀 OR 苹果 OR 三星 OR Huawei OR HONOR OR Xiaomi) (影像技术 OR 影像系统 OR 传感器 OR 长焦 OR 潜望 OR HDR OR AI影像 OR 计算摄影 OR 徕卡 OR 哈苏 OR 蔡司 OR LYTIA OR LOFIC) when:7d -评测 -对比 -榜单 -推荐 -降价"
+      hl: "zh-CN"
+      gl: "CN"
+      ceid: "CN:zh-Hans"
 
     # 传感器供应商 / 上游技术
     - name: "Google News - Mobile Sensor Vendors"
       category: "oem"
       query: "(Sony LYTIA OR Samsung ISOCELL OR OmniVision) (smartphone camera sensor OR image sensor OR stacked sensor OR HDR OR LOFIC) when:7d -review -comparison -price"
 
-# =================== QGenie ===================
-qgenie:
-  enabled: true
-  endpoint: "https://qgenie-api.qualcomm.com/v1/chat/completions"
-  model: "qgenie-default"
-  timeout_seconds: 60
-  api_key_env: "QGENIE_API_KEY"
-
 # =================== Notifier ===================
 notifier:
   channels:
-    - type: "wecom"
-      enabled: false
-      webhook_url_env: "WECOM_WEBHOOK_URL"
-
     - type: "email"
       enabled: false
       smtp_host: "smtp.qualcomm.com"

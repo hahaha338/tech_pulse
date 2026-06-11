@@ -6,9 +6,9 @@
 
 - 抓取外部影像技术趋势
 - 抓取大手机厂商影像发展趋势
-- 调用 QGenie 生成中文摘要
+- 生成中文 Markdown 摘要
 - 保存 Markdown 报告
-- 可选推送到企业微信 / Email
+- 可选推送到 Email
 
 ---
 
@@ -206,33 +206,9 @@ rss_sources:
 
 ---
 
-## 4. 配置 QGenie
+## 4. 摘要生成
 
-第一版默认启用 QGenie：
-
-```yaml
-qgenie:
-  enabled: true
-  endpoint: "https://qgenie-api.qualcomm.com/v1/chat/completions"
-  model: "qgenie-default"
-  timeout_seconds: 60
-  api_key_env: "QGENIE_API_KEY"
-```
-
-设置环境变量：
-
-```bash
-export QGENIE_API_KEY="your_qgenie_api_key"
-```
-
-如果 QGenie 调用失败，程序会自动退回模板化 Markdown 报告，不会中断整个任务。
-
-如果你想临时关闭 QGenie：
-
-```yaml
-qgenie:
-  enabled: false
-```
+程序会根据抓取结果生成本地模板化 Markdown 摘要，避免 API Key、企业代理证书、endpoint 变更导致任务失败。
 
 ---
 
@@ -240,27 +216,7 @@ qgenie:
 
 默认不启用推送，只保存报告到 `output/`。
 
-### 5.1 企业微信
-
-设置环境变量：
-
-```bash
-export WECOM_WEBHOOK_URL="your_wecom_webhook_url"
-```
-
-然后把 `config.yaml` 中企业微信渠道打开：
-
-```yaml
-notifier:
-  channels:
-    - type: "wecom"
-      enabled: true
-      webhook_url_env: "WECOM_WEBHOOK_URL"
-```
-
----
-
-### 5.2 Email
+### 5.1 Email
 
 把 Email 渠道打开：
 
@@ -360,15 +316,11 @@ crontab -e
 
 ## 10. 常见问题
 
-### Q1: 没有设置 QGENIE_API_KEY 会怎样？
-
-不会中断。程序会使用模板报告。
-
-### Q2: RSS 源访问失败会怎样？
+### Q1: RSS 源访问失败会怎样？
 
 不会中断。该源会被跳过，错误会写入日志和模板报告。
 
-### Q3: 不开企业微信和 Email 可以吗？
+### Q2: 不开 Email 可以吗？
 
 可以。默认只生成本地 Markdown 报告。
 
@@ -379,7 +331,6 @@ crontab -e
 ```bash
 cd tech_pulse
 pip install -r requirements.txt
-export QGENIE_API_KEY="your_qgenie_api_key"
 python main.py
 ```
 

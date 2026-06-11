@@ -1,27 +1,6 @@
-import os
 import smtplib
 from email.mime.text import MIMEText
 from typing import Any, Dict
-
-import requests
-
-
-def _send_wecom(content: str, channel_cfg: Dict[str, Any]) -> None:
-    webhook_url_env = channel_cfg.get("webhook_url_env", "WECOM_WEBHOOK_URL")
-    webhook_url = os.environ.get(webhook_url_env)
-
-    if not webhook_url:
-        raise ValueError(f"Environment variable {webhook_url_env} is not set.")
-
-    payload = {
-        "msgtype": "markdown",
-        "markdown": {
-            "content": content,
-        },
-    }
-
-    response = requests.post(webhook_url, json=payload, timeout=20)
-    response.raise_for_status()
 
 
 def _send_email(content: str, channel_cfg: Dict[str, Any]) -> None:
@@ -64,11 +43,7 @@ def send_notification(report: str, config: Dict[str, Any], logger=None) -> None:
         channel_type = channel.get("type")
 
         try:
-            if channel_type == "wecom":
-                _send_wecom(report, channel)
-                if logger:
-                    logger.info("WeCom notification sent")
-            elif channel_type == "email":
+            if channel_type == "email":
                 _send_email(report, channel)
                 if logger:
                     logger.info("Email notification sent")

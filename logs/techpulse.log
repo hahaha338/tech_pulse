@@ -198,3 +198,211 @@
 2026-06-10 13:22:12 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
 2026-06-10 13:22:12 | INFO | techpulse | No notifier channel enabled. Report is archived only.
 2026-06-10 13:22:12 | INFO | techpulse | TechPulse job completed
+2026-06-10 13:31:38 | INFO | techpulse | TechPulse job started
+2026-06-10 13:31:38 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 13:32:10 | INFO | techpulse | Generating summary
+2026-06-10 13:32:10 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 13:32:10 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 13:32:10 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 13:32:10 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 13:32:10 | INFO | techpulse | TechPulse job completed
+2026-06-10 13:39:47 | INFO | techpulse | TechPulse job started
+2026-06-10 13:39:47 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 13:40:27 | INFO | techpulse | Generating summary
+2026-06-10 13:40:27 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 13:40:27 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 13:40:27 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 13:40:27 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 13:40:27 | INFO | techpulse | TechPulse job completed
+2026-06-10 13:45:21 | INFO | techpulse | TechPulse job started
+2026-06-10 13:45:21 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 13:46:00 | INFO | techpulse | Generating summary
+2026-06-10 13:46:00 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 13:46:00 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 13:46:00 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 13:46:00 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 13:46:00 | INFO | techpulse | TechPulse job completed
+2026-06-10 13:52:40 | INFO | techpulse | TechPulse job started
+2026-06-10 13:52:40 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 13:53:22 | INFO | techpulse | Generating summary
+2026-06-10 13:53:22 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 13:53:22 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 13:53:22 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 13:53:22 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 13:53:22 | INFO | techpulse | TechPulse job completed
+2026-06-10 13:58:08 | INFO | techpulse | TechPulse job started
+2026-06-10 13:58:08 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 13:58:48 | INFO | techpulse | Generating summary
+2026-06-10 13:58:48 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 13:58:48 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 13:58:48 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 13:58:48 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 13:58:48 | INFO | techpulse | TechPulse job completed
+2026-06-10 14:07:51 | INFO | techpulse | TechPulse job started
+2026-06-10 14:07:51 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 14:08:27 | INFO | techpulse | Generating summary
+2026-06-10 14:08:27 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 14:08:27 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 14:08:27 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 14:08:27 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 14:08:27 | INFO | techpulse | TechPulse job completed
+2026-06-10 14:11:35 | INFO | techpulse | TechPulse job started
+2026-06-10 14:11:35 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 14:12:10 | INFO | techpulse | Generating summary
+2026-06-10 14:12:10 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 14:12:10 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 14:12:10 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 14:12:10 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 14:12:10 | INFO | techpulse | TechPulse job completed
+2026-06-10 14:23:31 | INFO | techpulse | TechPulse job started
+2026-06-10 14:23:31 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 14:24:13 | INFO | techpulse | Generating summary
+2026-06-10 14:24:13 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 14:24:13 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 14:24:13 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 14:24:13 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 14:24:13 | INFO | techpulse | TechPulse job completed
+2026-06-10 14:29:06 | INFO | techpulse | TechPulse job started
+2026-06-10 14:29:06 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 14:29:46 | INFO | techpulse | Generating summary
+2026-06-10 14:29:46 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 14:29:46 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 14:29:46 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 14:29:46 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 14:29:46 | INFO | techpulse | TechPulse job completed
+2026-06-10 14:33:47 | INFO | techpulse | TechPulse job started
+2026-06-10 14:33:47 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 14:34:24 | INFO | techpulse | Generating summary
+2026-06-10 14:34:24 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 14:34:26 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: HTTPSConnectionPool(host='qgenie-api.qualcomm.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)')))
+2026-06-10 14:34:26 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 14:34:26 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 14:34:26 | INFO | techpulse | TechPulse job completed
+2026-06-10 14:38:23 | INFO | techpulse | TechPulse job started
+2026-06-10 14:38:23 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 14:39:01 | INFO | techpulse | Generating summary
+2026-06-10 14:39:01 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 14:39:03 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: 404 Client Error: Not Found for url: https://qgenie-api.qualcomm.com/v1/chat/completions
+2026-06-10 14:39:03 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 14:39:03 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 14:39:03 | INFO | techpulse | TechPulse job completed
+2026-06-10 14:40:22 | INFO | techpulse | TechPulse job started
+2026-06-10 14:40:22 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 14:40:54 | INFO | techpulse | Generating summary
+2026-06-10 14:40:54 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 14:40:56 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: 404 Client Error: Not Found for url: https://qgenie-api.qualcomm.com/v1/chat/completions
+2026-06-10 14:40:56 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 14:40:56 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 14:40:56 | INFO | techpulse | TechPulse job completed
+2026-06-10 14:56:59 | INFO | techpulse | TechPulse job started
+2026-06-10 14:56:59 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 14:57:04 | INFO | techpulse | TechPulse job started
+2026-06-10 14:57:04 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 14:57:44 | INFO | techpulse | Generating summary
+2026-06-10 14:57:44 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 14:57:44 | INFO | techpulse | Generating summary
+2026-06-10 14:57:44 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 14:57:44 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 14:57:44 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 14:57:44 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 14:57:44 | INFO | techpulse | TechPulse job completed
+2026-06-10 14:57:45 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: 404 Client Error: Not Found for url: https://qgenie-chat.qualcomm.com/v1/chat/completions
+2026-06-10 14:57:45 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 14:57:45 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 14:57:45 | INFO | techpulse | TechPulse job completed
+2026-06-10 15:03:55 | INFO | techpulse | TechPulse job started
+2026-06-10 15:03:55 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 15:04:39 | INFO | techpulse | Generating summary
+2026-06-10 15:04:39 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 15:04:41 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Expecting value: line 3 column 1 (char 4)
+2026-06-10 15:04:41 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 15:04:41 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 15:04:41 | INFO | techpulse | TechPulse job completed
+2026-06-10 15:09:17 | INFO | techpulse | TechPulse job started
+2026-06-10 15:09:17 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 15:10:00 | INFO | techpulse | Generating summary
+2026-06-10 15:10:00 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 15:10:02 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Expecting value: line 3 column 1 (char 4)
+2026-06-10 15:10:02 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 15:10:02 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 15:10:02 | INFO | techpulse | TechPulse job completed
+2026-06-10 15:11:11 | INFO | techpulse | TechPulse job started
+2026-06-10 15:11:11 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 15:11:15 | INFO | techpulse | TechPulse job started
+2026-06-10 15:11:15 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 15:11:19 | INFO | techpulse | TechPulse job started
+2026-06-10 15:11:19 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 15:11:49 | INFO | techpulse | Generating summary
+2026-06-10 15:11:49 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 15:11:51 | INFO | techpulse | Generating summary
+2026-06-10 15:11:51 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 15:11:51 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 15:11:51 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 15:11:51 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 15:11:51 | INFO | techpulse | TechPulse job completed
+2026-06-10 15:11:51 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Expecting value: line 3 column 1 (char 4)
+2026-06-10 15:11:51 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 15:11:51 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 15:11:51 | INFO | techpulse | TechPulse job completed
+2026-06-10 15:12:03 | INFO | techpulse | Generating summary
+2026-06-10 15:12:03 | INFO | techpulse | Calling QGenie for Chinese summary
+2026-06-10 15:12:03 | WARNING | techpulse | QGenie failed. Falling back to template summary. Error: Environment variable QGENIE_API_KEY is not set.
+2026-06-10 15:12:03 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 15:12:03 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 15:12:03 | INFO | techpulse | TechPulse job completed
+2026-06-10 15:18:20 | INFO | techpulse | TechPulse job started
+2026-06-10 15:18:20 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 15:19:01 | INFO | techpulse | Generating summary
+2026-06-10 15:19:01 | INFO | techpulse | Generating template summary
+2026-06-10 15:19:01 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 15:19:01 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 15:19:01 | INFO | techpulse | TechPulse job completed
+2026-06-10 15:25:26 | INFO | techpulse | TechPulse job started
+2026-06-10 15:25:26 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 15:26:05 | INFO | techpulse | Generating summary
+2026-06-10 15:26:05 | INFO | techpulse | Generating template summary
+2026-06-10 15:26:05 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 15:26:05 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 15:26:05 | INFO | techpulse | TechPulse job completed
+2026-06-10 15:44:05 | INFO | techpulse | TechPulse job started
+2026-06-10 15:44:05 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 15:44:13 | INFO | techpulse | TechPulse job started
+2026-06-10 15:44:13 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 15:44:49 | INFO | techpulse | Generating summary
+2026-06-10 15:44:49 | INFO | techpulse | Generating template summary
+2026-06-10 15:44:49 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 15:44:49 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 15:44:49 | INFO | techpulse | TechPulse job completed
+2026-06-10 15:44:49 | INFO | techpulse | Generating summary
+2026-06-10 15:44:49 | INFO | techpulse | Generating template summary
+2026-06-10 15:44:49 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 15:44:49 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 15:44:49 | INFO | techpulse | TechPulse job completed
+2026-06-10 15:46:45 | INFO | techpulse | TechPulse job started
+2026-06-10 15:46:45 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 15:46:50 | INFO | techpulse | TechPulse job started
+2026-06-10 15:46:50 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 15:46:55 | INFO | techpulse | TechPulse job started
+2026-06-10 15:46:55 | INFO | techpulse | Fetching external imaging trends
+2026-06-10 15:47:26 | INFO | techpulse | Generating summary
+2026-06-10 15:47:26 | INFO | techpulse | Generating template summary
+2026-06-10 15:47:26 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 15:47:26 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 15:47:26 | INFO | techpulse | TechPulse job completed
+2026-06-10 15:47:28 | INFO | techpulse | Generating summary
+2026-06-10 15:47:28 | INFO | techpulse | Generating template summary
+2026-06-10 15:47:28 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 15:47:28 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 15:47:28 | INFO | techpulse | TechPulse job completed
+2026-06-10 15:47:29 | INFO | techpulse | Generating summary
+2026-06-10 15:47:29 | INFO | techpulse | Generating template summary
+2026-06-10 15:47:29 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-10.md
+2026-06-10 15:47:29 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-10 15:47:29 | INFO | techpulse | TechPulse job completed
+2026-06-11 10:49:02 | INFO | techpulse | TechPulse job started
+2026-06-11 10:49:02 | INFO | techpulse | Fetching external imaging trends
+2026-06-11 10:49:44 | INFO | techpulse | Generating summary
+2026-06-11 10:49:44 | INFO | techpulse | Generating template summary
+2026-06-11 10:49:44 | INFO | techpulse | Report saved to C:\Users\shiliang\Desktop\tech_pulse\output\techpulse_2026-06-11.md
+2026-06-11 10:49:44 | INFO | techpulse | No notifier channel enabled. Report is archived only.
+2026-06-11 10:49:44 | INFO | techpulse | TechPulse job completed
