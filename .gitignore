@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# 环境变量 / 密钥（绝对不能提交）
+.env
+*.env
+
+# 运行输出（本地保存，不提交到仓库）
+output/
+logs/
+
+# 测试脚本（可能含明文凭据）
+test_email.py
+
+# Windows 批处理启动脚本（含本地路径和密码）
+run_techpulse.bat
+
+# IDE
+.vscode/
+.idea/

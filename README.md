@@ -344,7 +344,23 @@ crontab -e
 
 ### GitHub Actions（推荐，PC 无需开机）
 
-将代码推送到 GitHub，在仓库的 **Settings → Secrets** 中添加 `TECHPULSE_SMTP_PASSWORD`，然后配置 `.github/workflows/techpulse.yml` 定时触发即可。详见后续文档。
+当前已配置 `.github/workflows/techpulse.yml`，每周一北京时间 10:00 自动运行。
+
+**首次使用步骤：**
+
+1. 将代码推送到 GitHub（公开或私有仓库均可）
+
+2. 进入仓库页面 → **Settings → Secrets and variables → Actions**
+
+3. 点击 **New repository secret**，添加：
+   - Name：`TECHPULSE_SMTP_PASSWORD`
+   - Secret：你的 QQ 邮箱授权码
+
+4. 之后每周一自动运行，无需 PC 开机
+
+**手动触发：**
+
+进入仓库 → **Actions → TechPulse Weekly Push → Run workflow**，可随时手动触发一次。
 
 ---
 

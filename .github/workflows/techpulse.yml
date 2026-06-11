@@ -1,0 +1,28 @@
+name: TechPulse Weekly Push
+
+on:
+  schedule:
+    # 每周一北京时间 10:00（UTC 02:00）
+    - cron: "0 2 * * 1"
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run TechPulse
+        env:
+          TECHPULSE_SMTP_PASSWORD: ${{ secrets.TECHPULSE_SMTP_PASSWORD }}
+        run: python main.py
