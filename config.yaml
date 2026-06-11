@@ -408,12 +408,14 @@ external:
 notifier:
   channels:
     - type: "email"
-      enabled: false
-      smtp_host: "smtp.qualcomm.com"
+      enabled: true
+      smtp_host: "smtp.qq.com"
       smtp_port: 587
-      from: "shiliang@qti.qualcomm.com"
+      username: "YOUR_QQ_EMAIL@qq.com"
+      # password: 不要写在这里，用环境变量 TECHPULSE_SMTP_PASSWORD（QQ邮箱授权码，不是QQ密码）
+      from: "YOUR_QQ_EMAIL@qq.com"
       to:
-        - "shiliang@qti.qualcomm.com"
+        - "YOUR_QQ_EMAIL@qq.com"
 
 # =================== Output ===================
 output:

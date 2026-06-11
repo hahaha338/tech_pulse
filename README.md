@@ -212,28 +212,82 @@ rss_sources:
 
 ---
 
-## 5. 推送配置
+## 5. 邮件推送配置
 
-默认不启用推送，只保存报告到 `output/`。
+### 5.1 开启邮件推送
 
-### 5.1 Email
-
-把 Email 渠道打开：
+编辑 `config.yaml`，把 `enabled` 改为 `true`，并填写你的邮箱信息(目前支持个人邮箱)：
 
 ```yaml
 notifier:
   channels:
     - type: "email"
       enabled: true
-      smtp_host: "smtp.qualcomm.com"
+      smtp_host: "smtp.qq.com"      # 根据邮箱服务商修改
       smtp_port: 587
-      from: "shiliang@qti.qualcomm.com"
+      username: "your_email@qq.com"
+      from: "your_email@qq.com"
       to:
-        - "shiliang@qti.qualcomm.com"
+        - "your_email@qq.com"       # 收件人，可添加多个
 ```
 
-当前实现使用 SMTP TLS，不带用户名密码。  
-如果你的 SMTP 需要登录认证，需要后续再补 `smtp.login()`。
+**不要把密码/授权码写在 `config.yaml` 里**，通过环境变量传入：
+
+```powershell
+# Windows PowerShell
+$env:TECHPULSE_SMTP_PASSWORD="你的授权码"
+python main.py
+```
+
+```bash
+# Linux / macOS
+TECHPULSE_SMTP_PASSWORD="你的授权码" python main.py
+```
+
+---
+
+### 5.2 各邮箱服务商配置
+
+| 服务商 | smtp_host | smtp_port | 说明 |
+|--------|-----------|-----------|------|
+| QQ 邮箱 | `smtp.qq.com` | 587 | 需在 QQ 邮箱设置中开启 SMTP 并获取**授权码** |
+| Gmail | `smtp.gmail.com` | 587 | 需开启两步验证，生成**应用专用密码** |
+| Outlook / Hotmail | `smtp.office365.com` | 587 | 使用账号密码登录 |
+| 163 邮箱 | `smtp.163.com` | 465 | 需在邮箱设置中开启 SMTP 并获取**授权码** |
+
+---
+
+### 5.3 QQ 邮箱获取授权码步骤
+
+1. 登录 [QQ 邮箱网页版](https://mail.qq.com)
+2. 进入 **设置 → 账户**
+3. 找到「POP3/IMAP/SMTP 服务」，点击**开启**
+4. 按提示发短信验证，获得一串授权码（如 `abcdefghijklmnop`）
+5. 将授权码设置为环境变量 `TECHPULSE_SMTP_PASSWORD`
+
+> 授权码不是 QQ 密码，每次重新生成后旧的自动失效。
+
+---
+
+### 5.4 不想每次手动设置环境变量
+
+**Windows**：将密码永久写入用户环境变量（系统设置 → 高级系统设置 → 环境变量），变量名 `TECHPULSE_SMTP_PASSWORD`，这样每次运行无需重复设置。
+
+**Linux / macOS**：写入 `~/.bashrc` 或 `~/.zshrc`：
+
+```bash
+export TECHPULSE_SMTP_PASSWORD="你的授权码"
+```
+
+---
+
+### 5.5 关闭邮件推送
+
+把 `config.yaml` 中 `enabled` 改回 `false` 即可，报告仍会保存到 `output/`：
+
+```yaml
+      enabled: false
+```
 
 ---
 
@@ -254,21 +308,43 @@ logs/techpulse.log
 
 ---
 
-## 7. Cron 自动运行
+## 7. 定时自动运行
 
-每 2 天 09:00 执行一次：
+### Windows 任务计划程序
+
+先创建一个启动脚本 `run_techpulse.bat`（参考项目根目录的同名文件），在里面设置好环境变量。
+
+然后在 PowerShell 中注册定时任务，例如每天早上 8 点运行：
+
+```powershell
+schtasks /create /tn "TechPulse" /tr "C:\your\path\tech_pulse\run_techpulse.bat" /sc daily /st 08:00 /f
+```
+
+关闭定时任务：
+
+```powershell
+# 禁用（保留任务）
+schtasks /change /tn "TechPulse" /disable
+
+# 彻底删除
+schtasks /delete /tn "TechPulse" /f
+```
+
+### Linux / macOS Cron
 
 ```bash
 crontab -e
 ```
 
-添加：
+添加（每天 09:00 执行）：
 
 ```bash
-0 9 */2 * * cd /home/shiliang/tech_pulse && python main.py >> logs/cron.log 2>&1
+0 9 * * * cd /your/path/tech_pulse && TECHPULSE_SMTP_PASSWORD="你的授权码" python main.py >> logs/cron.log 2>&1
 ```
 
-如果你的项目路径不同，请替换 `/home/shiliang/tech_pulse`。
+### GitHub Actions（推荐，PC 无需开机）
+
+将代码推送到 GitHub，在仓库的 **Settings → Secrets** 中添加 `TECHPULSE_SMTP_PASSWORD`，然后配置 `.github/workflows/techpulse.yml` 定时触发即可。详见后续文档。
 
 ---
 

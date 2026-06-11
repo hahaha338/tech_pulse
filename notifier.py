@@ -1,3 +1,4 @@
+import os
 import smtplib
 from email.mime.text import MIMEText
 from typing import Any, Dict
@@ -8,6 +9,9 @@ def _send_email(content: str, channel_cfg: Dict[str, Any]) -> None:
     smtp_port = int(channel_cfg.get("smtp_port", 587))
     sender = channel_cfg.get("from")
     recipients = channel_cfg.get("to", [])
+    username = channel_cfg.get("username") or sender
+    # Password: config field takes precedence, then env var TECHPULSE_SMTP_PASSWORD
+    password = channel_cfg.get("password") or os.environ.get("TECHPULSE_SMTP_PASSWORD", "")
 
     if not smtp_host:
         raise ValueError("smtp_host is not configured.")
@@ -23,6 +27,8 @@ def _send_email(content: str, channel_cfg: Dict[str, Any]) -> None:
 
     with smtplib.SMTP(smtp_host, smtp_port, timeout=30) as smtp:
         smtp.starttls()
+        if password:
+            smtp.login(username, password)
         smtp.sendmail(sender, recipients, msg.as_string())
 
 
