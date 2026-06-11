@@ -433,7 +433,8 @@ def _diversify_items(
         return []
 
     if category == "oem":
-        group_order = ["cn_google", "global_google", "cn_rss", "official", "media"]
+        # 技术深度优先：官方厂商公告 > 英文Google News > 英文媒体RSS > 中文Google News > 中文RSS
+        group_order = ["official", "global_google", "media", "cn_google", "cn_rss"]
         source_cap = 2
     else:
         group_order = ["academic", "tech_google", "cn_rss", "media", "official"]
