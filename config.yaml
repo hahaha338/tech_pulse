@@ -411,11 +411,11 @@ notifier:
       enabled: true
       smtp_host: "smtp.qq.com"
       smtp_port: 587
-      username: "YOUR_QQ_EMAIL@qq.com"
+      username: "1356339789@qq.com"
       # password: 不要写在这里，用环境变量 TECHPULSE_SMTP_PASSWORD（QQ邮箱授权码，不是QQ密码）
-      from: "YOUR_QQ_EMAIL@qq.com"
+      from: "1356339789@qq.com"
       to:
-        - "YOUR_QQ_EMAIL@qq.com"
+        - "1356339789@qq.com"
 
 # =================== Output ===================
 output:
