@@ -26,4 +26,5 @@ jobs:
       - name: Run TechPulse
         env:
           TECHPULSE_SMTP_PASSWORD: ${{ secrets.TECHPULSE_SMTP_PASSWORD }}
+          DASHSCOPE_API_KEY: ${{ secrets.DASHSCOPE_API_KEY }}
         run: python main.py

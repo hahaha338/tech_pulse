@@ -206,9 +206,42 @@ rss_sources:
 
 ---
 
-## 4. 摘要生成
+## 4. 摘要生成（千问 AI 要点提炼）
 
-程序会根据抓取结果生成本地模板化 Markdown 摘要，避免 API Key、企业代理证书、endpoint 变更导致任务失败。
+每条新闻下方会由通义千问自动提炼与手机影像、相机传感器、计算摄影相关的中文技术要点。
+
+### 4.1 获取 DashScope API Key
+
+1. 登录 [阿里云 DashScope 控制台](https://dashscope.console.aliyun.com)
+2. 进入 **API-KEY 管理**，点击 **创建新的 API-KEY**
+3. 复制生成的 Key（格式如 `sk-xxxxxxxxxxxxxxxx`）
+
+### 4.2 设置环境变量
+
+**Windows PowerShell（临时，当前终端有效）：**
+
+```powershell
+$env:DASHSCOPE_API_KEY="sk-你的Key"
+python main.py
+```
+
+**Windows 永久设置（推荐，一次设置永久生效）：**
+
+1. 打开「系统设置 → 高级系统设置 → 环境变量」
+2. 在「用户变量」中点击「新建」
+3. 变量名：`DASHSCOPE_API_KEY`，变量值：你的 Key
+4. 确定保存后重新打开终端即生效
+
+**Linux / macOS：**
+
+```bash
+export DASHSCOPE_API_KEY="sk-你的Key"
+# 或写入 ~/.bashrc / ~/.zshrc 永久生效
+```
+
+### 4.3 未设置 API Key 时的行为
+
+不影响正常运行，只是报告中不会出现「要点」字段，其他内容照常生成。
 
 ---
 
@@ -352,9 +385,9 @@ crontab -e
 
 2. 进入仓库页面 → **Settings → Secrets and variables → Actions**
 
-3. 点击 **New repository secret**，添加：
-   - Name：`TECHPULSE_SMTP_PASSWORD`
-   - Secret：你的 QQ 邮箱授权码
+3. 点击 **New repository secret**，分别添加：
+   - Name：`TECHPULSE_SMTP_PASSWORD`，Secret：你的 QQ 邮箱授权码
+   - Name：`DASHSCOPE_API_KEY`，Secret：你的 DashScope API Key
 
 4. 之后每周一自动运行，无需 PC 开机
 
@@ -423,6 +456,14 @@ crontab -e
 ```bash
 cd tech_pulse
 pip install -r requirements.txt
+python main.py
+```
+
+如需 AI 要点提炼，运行前先设置环境变量：
+
+```powershell
+# Windows PowerShell
+$env:DASHSCOPE_API_KEY="sk-你的Key"
 python main.py
 ```
 
