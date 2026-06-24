@@ -6,6 +6,10 @@ on:
     - cron: "0 2 * * 1"
   workflow_dispatch: # 允许手动触发
 
+# 允许 workflow 写入仓库（用于 GitHub Pages 部署）
+permissions:
+  contents: write
+
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -28,3 +32,13 @@ jobs:
           TECHPULSE_SMTP_PASSWORD: ${{ secrets.TECHPULSE_SMTP_PASSWORD }}
           DASHSCOPE_API_KEY: ${{ secrets.DASHSCOPE_API_KEY }}
         run: python main.py
+
+      - name: Build website
+        run: python build_web.py
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          commit_message: "chore: update site [${{ github.run_number }}]"
