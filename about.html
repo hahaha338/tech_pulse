@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于 — TechPulse</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="topbar"></div>
+<nav class="nav">
+  <a class="nav-brand" href="index.html">
+    <span class="nav-wordmark">Qualcomm<span>.</span></span>
+    <div class="nav-divider"></div>
+    <span class="nav-title">TechPulse</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">最新报告</a>
+    <a href="archive.html">历史归档</a>
+    <a href="about.html" class="active">关于</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">项目说明</div>
+      <h1>关于<em> TechPulse</em></h1>
+      <p class="hero-sub">手机影像技术自动追踪与 AI 智能分析工具</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="about-grid">
+
+    <div class="about-card full">
+      <div class="about-card-icon">🎯</div>
+      <h3>项目简介</h3>
+      <p>TechPulse 是一款面向手机相机工程师的自动化技术情报工具，每周自动抓取全球影像技术资讯，通过通义千问大模型从工程师视角提炼传感器规格、ISP 算法、计算摄影等专业技术要点，帮助工程师快速掌握行业动态，无需逐篇阅读原文。</p>
+    </div>
+
+    <div class="about-card">
+      <div class="about-card-icon">🤖</div>
+      <h3>AI 要点提炼</h3>
+      <p>每条资讯自动读取原文网页，由通义千问（qwen-turbo）提炼技术要点，包含传感器尺寸、像素、光圈、变焦倍数、动态范围、ISP 型号、算法创新等具体参数。</p>
+    </div>
+
+    <div class="about-card">
+      <div class="about-card-icon">⚙️</div>
+      <h3>技术实现</h3>
+      <ul>
+        <li>Python 3.12 + feedparser 抓取 RSS/HTML</li>
+        <li>多层关键词过滤排除无关内容</li>
+        <li>googlenewsdecoder 解析真实文章链接</li>
+        <li>GitHub Actions 每周自动运行并更新本站</li>
+      </ul>
+    </div>
+
+    <div class="about-card full">
+      <div class="about-card-icon">📡</div>
+      <h3>数据来源</h3>
+      <div class="source-chips">
+        <span class="chip">arXiv CV 论文</span>
+        <span class="chip">Image Sensors World</span>
+        <span class="chip">EETimes</span>
+        <span class="chip">Apple Newsroom</span>
+        <span class="chip">Samsung Newsroom</span>
+        <span class="chip">Google Pixel Blog</span>
+        <span class="chip">Xiaomi / OPPO / vivo</span>
+        <span class="chip">Huawei / HONOR</span>
+        <span class="chip">Sony Semiconductor</span>
+        <span class="chip">Android Authority</span>
+        <span class="chip">PetaPixel · DPReview</span>
+        <span class="chip">IT之家 · 少数派 · 雷峰网</span>
+        <span class="chip">Google News 聚合</span>
+      </div>
+    </div>
+
+    <div class="about-card full">
+      <div class="about-card-icon">🔗</div>
+      <h3>开源地址</h3>
+      <p>
+        <a href="https://github.com/hahaha338/tech_pulse" target="_blank" rel="noopener"
+           style="color:var(--qc-blue);font-weight:600">
+          github.com/hahaha338/tech_pulse →
+        </a>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-left">
+    <span class="footer-wordmark">Qualcomm<span>.</span></span>
+    <span class="footer-dot"></span>
+    <span>TechPulse Auto-Push</span>
+  </div>
+  <div>
+    <a href="https://github.com/hahaha338/tech_pulse" target="_blank" rel="noopener">GitHub</a>
+    &nbsp;&nbsp;由千问 AI 自动生成
+  </div>
+</footer>
+
+</body>
+</html>
