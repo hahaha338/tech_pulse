@@ -201,7 +201,7 @@ external:
     - "抢购"
     - "购买"
     - "价格"
-    - "发售价"
+    - "售"
     # --- 消费体验/样张类 ---
     - "拍摄样张"
     - "拍照样张"
@@ -260,17 +260,20 @@ external:
     - "surround view"
     - "parking camera"
     - "in-vehicle"
-    - "car"
     - "car camera"
-    - "automotive"
     - "automotive imaging"
     - "汽车"    
     - "汽车摄像头"
+    - "驾驶"
+    - "车载"
     - "车载摄像"
     - "自动驾驶"
     - "辅助驾驶"
     - "行车记录"
     - "车规"
+    - "智驾"
+    - "激光雷达"
+    - "毫米波雷达"
 
   rss_sources:
     # 论文 / 学术趋势

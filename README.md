@@ -1,11 +1,7 @@
 # 📡 TechPulse Auto-Push
 
-简化版技术学习追踪推送工具。
-
-第一版功能保持简单：
-
 - 抓取外部影像技术趋势
-- 抓取大手机厂商影像发展趋势
+- 抓取手机厂商影像发展趋势
 - 生成中文 Markdown 摘要
 - 保存 Markdown 报告
 - 可选推送到 Email
@@ -194,7 +190,7 @@ rss_sources:
 说明：
 
 - `category: tech` 用于外部影像技术趋势
-- `category: oem` 用于大手机厂商影像发展趋势
+- `category: oem` 用于手机厂商影像发展趋势
 - `lookback_days: 7` 表示只保留最近 7 天内容
 - `type: rss` 表示直接读取 RSS / Atom feed
 - `type: html` 表示轻量解析官网新闻页里的链接标题，不做深度爬虫、不执行 JS；如果官网链接没有明确日期，会被跳过，避免旧新闻误入
@@ -421,25 +417,8 @@ crontab -e
 - Google Pixel
 - Sony LYTIA
 
----
 
-## 9. 当前版本刻意不做的事情
-
-为了保持第一版简单，当前不做：
-
-- 不做内部 CamX / CHI-CDK 抓取
-- 不做 Gerrit 抓取
-- 不做数据库
-- 不做 Web UI
-- 不做网页深度爬虫
-- 不做 embedding
-- 不做复杂去重
-- 不做 SharePoint 上传
-- 不做 Teams 推送
-
----
-
-## 10. 常见问题
+## 9. 常见问题
 
 ### Q1: RSS 源访问失败会怎样？
 
@@ -451,7 +430,7 @@ crontab -e
 
 ---
 
-## 11. 最小运行步骤
+## 10. 最小运行步骤
 
 ```bash
 cd tech_pulse
