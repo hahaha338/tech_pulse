@@ -118,10 +118,8 @@ def _llm_digest(title: str, raw_summary: str, link: str, llm_cfg: Dict[str, Any]
         )
         if resp.status_code == 200:
             return resp.output.choices[0].message.content.strip()
-        print(f"[LLM] status={resp.status_code} code={resp.code} message={resp.message}")
         return ""
-    except Exception as e:
-        print(f"[LLM] exception: {e}")
+    except Exception:
         return ""
 
 
