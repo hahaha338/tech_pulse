@@ -5,3 +5,4 @@ pyyaml==6.0.1
 python-dotenv==1.0.1
 schedule==1.2.1
 googlenewsdecoder>=0.1.7
+qgeniechat-sdk

@@ -7,10 +7,10 @@ external:
   max_report_items_per_section: 10
   max_report_items_archive: 5
 
-  # OEM 新鲜度过滤：用千问联网搜索判断文章中的主要产品是否在此天数内首发
+  # OEM 新鲜度过滤：判断文章中的主要产品是否在此天数内首发
   # 设为 0 关闭此功能
   freshness_check_days: 60
-  freshness_model: "qwen-plus"
+  freshness_model: "azure::gpt-5.5"
 
   tech_keywords:
     - "mobile imaging"
@@ -457,6 +457,11 @@ external:
     - name: "Google News - Mobile Sensor Vendors"
       category: "oem"
       query: "(Sony LYTIA OR Samsung ISOCELL OR OmniVision) (smartphone camera sensor OR image sensor OR stacked sensor OR HDR OR LOFIC OR sensor architecture OR pixel binning) when:7d -review -comparison -price"
+
+# =================== LLM ===================
+llm:
+  model: "azure::gpt-5.5"
+  max_summary_chars: 300
 
 # =================== Notifier ===================
 notifier:

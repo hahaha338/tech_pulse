@@ -5,8 +5,7 @@ import requests
 from html.parser import HTMLParser
 from typing import Any, Dict, List
 
-import dashscope
-from dashscope import Generation
+from qgeniechat_core import QGenieChatClient, Message
 
 # 高通企业网络使用自签名 SSL 证书代理，需全局禁用验证
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -79,15 +78,9 @@ def _fetch_article_text(url: str, max_chars: int = 3000) -> str:
 
 
 def _llm_digest(title: str, raw_summary: str, link: str, llm_cfg: Dict[str, Any]) -> str:
-    api_key = os.environ.get("DASHSCOPE_API_KEY", "")
-    if not api_key:
-        return ""
-    dashscope.api_key = api_key
-
     max_chars = int(llm_cfg.get("max_summary_chars", 300))
-    model = llm_cfg.get("model", "qwen-turbo")
+    model = llm_cfg.get("model", "azure::gpt-5.5")
 
-    # 优先读网页原文，没有则退回 RSS summary
     article_text = _fetch_article_text(link)
     content = article_text or raw_summary
 
@@ -109,16 +102,13 @@ def _llm_digest(title: str, raw_summary: str, link: str, llm_cfg: Dict[str, Any]
         )
 
     try:
-        resp = Generation.call(
-            model=model,
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=400,
-            temperature=0.3,
-            result_format="message",
+        client = QGenieChatClient()
+        response = client.chat(
+            messages=[Message(role="user", content=prompt)],
+            model_name=model,
+            stream=False,
         )
-        if resp.status_code == 200:
-            return resp.output.choices[0].message.content.strip()
-        return ""
+        return response.first_content.strip()
     except Exception:
         return ""
 

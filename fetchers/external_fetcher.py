@@ -7,12 +7,11 @@ from html.parser import HTMLParser
 from typing import Any, Dict, List, Optional, Tuple
 from urllib.parse import quote_plus, urljoin
 
-import dashscope
 import feedparser
 import requests
 import urllib3
-from dashscope import Generation
 from requests.exceptions import SSLError
+from qgeniechat_core import QGenieChatClient, Message
 
 
 GOOGLE_NEWS_RSS = "https://news.google.com/rss/search?q={query}&hl={hl}&gl={gl}&ceid={ceid}"
@@ -488,29 +487,24 @@ def _diversify_items(
 
 
 def _is_fresh_oem_item(item: Dict[str, Any], config: Dict[str, Any]) -> bool:
-    """Use Qwen web search to check if the main product in the article
-    was first announced within freshness_check_days.
+    """Return True if the article's main product was released/announced within
+    freshness_check_days, or is not yet officially released (leak/rumour stage).
 
-    Fails open (returns True) on missing API key or any error, so a broken
-    API never empties the report.
+    Fails open (returns True) on any error so a broken auth never empties the report.
     """
-    api_key = os.environ.get("DASHSCOPE_API_KEY", "")
-    if not api_key:
-        return True
-
     external_cfg = config.get("external", {})
     freshness_days = int(external_cfg.get("freshness_check_days", 60))
     if freshness_days <= 0:
         return True
 
-    model = external_cfg.get("freshness_model", "qwen-turbo")
+    model = external_cfg.get("freshness_model", "azure::gpt-5.5")
     today = datetime.utcnow().strftime("%Y-%m-%d")
     title = item.get("title", "")
 
     prompt = (
         f"今天是 {today}。\n\n"
         f"文章标题：{title}\n\n"
-        f"请联网搜索该标题中提到的主要产品或技术，判断以下任一条件是否成立：\n"
+        f"请根据你的知识判断该标题中提到的主要产品或技术，以下任一条件是否成立：\n"
         f"1. 该产品/技术在最近 {freshness_days} 天内首次正式发布；\n"
         f"2. 该产品尚未正式发布（仍处于爆料、曝光、泄露、传言阶段）。\n"
         f"满足任一条件回答'是'，两个条件都不满足（即已发布但超过 {freshness_days} 天）回答'否'。\n"
@@ -518,19 +512,14 @@ def _is_fresh_oem_item(item: Dict[str, Any], config: Dict[str, Any]) -> bool:
     )
 
     try:
-        dashscope.api_key = api_key
-        resp = Generation.call(
-            model=model,
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=10,
-            temperature=0,
-            result_format="message",
-            enable_search=True,
+        client = QGenieChatClient()
+        response = client.chat(
+            messages=[Message(role="user", content=prompt)],
+            model_name=model,
+            stream=False,
         )
-        if resp.status_code == 200:
-            answer = resp.output.choices[0].message.content.strip()
-            return answer.startswith("是")
-        return True
+        answer = response.first_content.strip()
+        return answer.startswith("是")
     except Exception:
         return True
 
