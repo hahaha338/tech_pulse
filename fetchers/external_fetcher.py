@@ -510,8 +510,10 @@ def _is_fresh_oem_item(item: Dict[str, Any], config: Dict[str, Any]) -> bool:
     prompt = (
         f"今天是 {today}。\n\n"
         f"文章标题：{title}\n\n"
-        f"请联网搜索该标题中提到的主要产品或技术的首次公开发布/发布时间，"
-        f"判断它是否在最近 {freshness_days} 天内首次发布或首次公开披露？\n"
+        f"请联网搜索该标题中提到的主要产品或技术，判断以下任一条件是否成立：\n"
+        f"1. 该产品/技术在最近 {freshness_days} 天内首次正式发布；\n"
+        f"2. 该产品尚未正式发布（仍处于爆料、曝光、泄露、传言阶段）。\n"
+        f"满足任一条件回答'是'，两个条件都不满足（即已发布但超过 {freshness_days} 天）回答'否'。\n"
         f"只回答'是'或'否'，不要解释。"
     )
 
