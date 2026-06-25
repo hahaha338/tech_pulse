@@ -1,3 +1,4 @@
+import os
 import re
 from collections import OrderedDict, defaultdict, deque
 from datetime import datetime, timedelta, timezone
@@ -6,9 +7,11 @@ from html.parser import HTMLParser
 from typing import Any, Dict, List, Optional, Tuple
 from urllib.parse import quote_plus, urljoin
 
+import dashscope
 import feedparser
 import requests
 import urllib3
+from dashscope import Generation
 from requests.exceptions import SSLError
 
 
@@ -484,6 +487,52 @@ def _diversify_items(
     return selected[:max_items]
 
 
+def _is_fresh_oem_item(item: Dict[str, Any], config: Dict[str, Any]) -> bool:
+    """Use Qwen web search to check if the main product in the article
+    was first announced within freshness_check_days.
+
+    Fails open (returns True) on missing API key or any error, so a broken
+    API never empties the report.
+    """
+    api_key = os.environ.get("DASHSCOPE_API_KEY", "")
+    if not api_key:
+        return True
+
+    external_cfg = config.get("external", {})
+    freshness_days = int(external_cfg.get("freshness_check_days", 60))
+    if freshness_days <= 0:
+        return True
+
+    model = external_cfg.get("freshness_model", "qwen-turbo")
+    today = datetime.utcnow().strftime("%Y-%m-%d")
+    title = item.get("title", "")
+
+    prompt = (
+        f"今天是 {today}。\n\n"
+        f"文章标题：{title}\n\n"
+        f"请联网搜索该标题中提到的主要产品或技术的首次公开发布/发布时间，"
+        f"判断它是否在最近 {freshness_days} 天内首次发布或首次公开披露？\n"
+        f"只回答'是'或'否'，不要解释。"
+    )
+
+    try:
+        dashscope.api_key = api_key
+        resp = Generation.call(
+            model=model,
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=10,
+            temperature=0,
+            result_format="message",
+            enable_search=True,
+        )
+        if resp.status_code == 200:
+            answer = resp.output.choices[0].message.content.strip()
+            return answer.startswith("是")
+        return True
+    except Exception:
+        return True
+
+
 def fetch_external_trends(config: Dict[str, Any]) -> Dict[str, List[Dict[str, Any]]]:
     """Fetch external tech trends and smartphone OEM imaging trends.
 
@@ -501,6 +550,7 @@ def fetch_external_trends(config: Dict[str, Any]) -> Dict[str, List[Dict[str, An
     results: Dict[str, List[Dict[str, Any]]] = {
         "tech": [],
         "oem": [],
+        "oem_archive": [],
         "errors": [],
     }
     seen_links = set()
@@ -586,7 +636,19 @@ def fetch_external_trends(config: Dict[str, Any]) -> Dict[str, List[Dict[str, An
                 }
             )
 
+    freshness_days = int(external_cfg.get("freshness_check_days", 0))
+    if freshness_days > 0:
+        fresh, archive = [], []
+        for item in results["oem"]:
+            if _is_fresh_oem_item(item, config):
+                fresh.append(item)
+            else:
+                archive.append(item)
+        results["oem"] = fresh
+        results["oem_archive"] = archive
+
     results["tech"] = _diversify_items(results["tech"], max_items_total, "tech")
     results["oem"] = _diversify_items(results["oem"], max_items_total, "oem")
+    results["oem_archive"] = _diversify_items(results["oem_archive"], max_items_total, "oem")
 
     return results

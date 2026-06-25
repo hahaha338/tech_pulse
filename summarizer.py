@@ -154,6 +154,7 @@ def _template_summary(
 ) -> str:
     external_cfg = config.get("external", {})
     max_report_items = int(external_cfg.get("max_report_items_per_section", 5))
+    max_archive_items = int(external_cfg.get("max_report_items_archive", 5))
     llm_cfg = config.get("llm", {})
 
     lines = ["## 1. 外部影像技术趋势", ""]
@@ -169,6 +170,11 @@ def _template_summary(
         lines.append("- 本周期无明显手机厂商影像趋势更新。")
     else:
         _render_items(oem_items, max_report_items, llm_cfg, lines)
+
+    archive_items = external_data.get("oem_archive", [])
+    if archive_items:
+        lines.extend(["", "## 3. 往期产品参考", ""])
+        _render_items(archive_items, max_archive_items, llm_cfg, lines)
 
     return "\n".join(lines).strip()
 
