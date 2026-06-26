@@ -4,12 +4,12 @@ external:
   lookback_days: 7
   max_items_per_source: 5
   max_items_total: 30
-  max_report_items_per_section: 10
-  max_report_items_archive: 5
+  max_report_items_per_section: 15
+  max_report_items_archive: 3
 
   # OEM 新鲜度过滤：判断文章中的主要产品是否在此天数内首发
   # 设为 0 关闭此功能
-  freshness_check_days: 60
+  freshness_check_days: 30
   freshness_model: "azure::gpt-5.5"
 
   tech_keywords:
@@ -80,23 +80,49 @@ external:
     - "Samsung"
     - "Galaxy"
     - "Xiaomi"
+    - "Redmi"
+    - "POCO"
     - "OPPO"
+    - "OnePlus"
+    - "Realme"
     - "vivo"
+    - "iQOO"
     - "Huawei"
     - "HONOR"
     - "Google Pixel"
     - "Pixel"
     - "Sony LYTIA"
+    - "Sony Xperia"
+    - "Xperia"
     - "Samsung ISOCELL"
     - "OmniVision"
+    - "Nubia"
+    - "RedMagic"
+    - "Motorola"
+    - "Meizu"
+    - "Lenovo"
+    - "Transsion"
+    - "Tecno"
+    - "Infinix"
+    - "itel"
     - "苹果"
     - "三星"
     - "小米"
+    - "红米"
     - "OPPO"
+    - "一加"
+    - "真我"
     - "vivo"
+    - "iQOO"
     - "华为"
     - "荣耀"
     - "索尼"
+    - "努比亚"
+    - "红魔"
+    - "摩托罗拉"
+    - "魅族"
+    - "联想"
+    - "传音"
 
   # 手机厂商影像趋势必须命中这些技术词之一，避免只抓到榜单/评测/促销
   # 原则：要求具体的技术概念，不接受"拍照"/"相机"/"影像"等泛义词
@@ -421,7 +447,7 @@ external:
     # 手机厂商影像技术趋势（英文）——要求具体技术词，排除评测/样张/价格
     - name: "Google News - OEM Imaging Tech"
       category: "oem"
-      query: "(Apple OR iPhone OR Samsung OR Galaxy OR Xiaomi OR OPPO OR vivo OR Huawei OR HONOR OR Pixel) (camera sensor OR imaging technology OR computational photography OR periscope telephoto OR variable aperture OR ISP OR LOFIC OR LYTIA OR ISOCELL OR stacked sensor OR image signal processor) when:7d -\"camera review\" -\"phone review\" -DxOMark -\"hands-on\" -\"sample\" -price -automotive -ADAS -\"self-driving\""
+      query: "(Apple OR iPhone OR Samsung OR Galaxy OR Xiaomi OR Redmi OR POCO OR OPPO OR OnePlus OR Realme OR vivo OR iQOO OR Huawei OR HONOR OR Pixel OR Xperia OR Nubia OR RedMagic OR Motorola OR Meizu OR Lenovo OR Transsion) (camera sensor OR imaging technology OR computational photography OR periscope telephoto OR variable aperture OR ISP OR LOFIC OR LYTIA OR ISOCELL OR stacked sensor OR image signal processor) when:7d -\"camera review\" -\"phone review\" -DxOMark -\"hands-on\" -\"sample\" -price -automotive -ADAS -\"self-driving\""
 
     - name: "Google News - Apple Pixel Imaging"
       category: "oem"
@@ -429,7 +455,7 @@ external:
 
     - name: "Google News - Samsung Xiaomi OPPO Vivo Imaging"
       category: "oem"
-      query: "(Samsung OR Galaxy OR Xiaomi OR OPPO OR vivo) (camera sensor OR periscope telephoto OR variable aperture OR ISP OR LOFIC OR LYTIA OR ISOCELL OR stacked sensor OR imaging technology OR camera module) when:7d -\"camera review\" -DxOMark -\"hands-on\" -\"sample\" -price -automotive -ADAS -\"self-driving\""
+      query: "(Samsung OR Galaxy OR Xiaomi OR Redmi OR POCO OR OPPO OR OnePlus OR Realme OR vivo OR iQOO OR Nubia OR RedMagic OR Motorola OR Meizu OR Lenovo OR Transsion) (camera sensor OR periscope telephoto OR variable aperture OR ISP OR LOFIC OR LYTIA OR ISOCELL OR stacked sensor OR imaging technology OR camera module) when:7d -\"camera review\" -DxOMark -\"hands-on\" -\"sample\" -price -automotive -ADAS -\"self-driving\""
 
     # 手机厂商影像技术趋势（中文）——要求具体技术词，排除评测/样张/体验/价格
     - name: "Google News - Huawei HONOR Imaging China"
@@ -441,14 +467,14 @@ external:
 
     - name: "Google News - Xiaomi OPPO vivo Imaging China"
       category: "oem"
-      query: "(小米 OR OPPO OR vivo OR Xiaomi) (影像技术 OR 影像系统 OR 影像算法 OR 传感器 OR 计算摄影 OR ISP OR 潜望 OR 可变光圈 OR 蓝图影像 OR AI影像 OR 徕卡 OR 哈苏 OR 蔡司 OR LYTIA OR LOFIC OR 光学防抖) when:7d -评测 -对比 -榜单 -推荐 -降价 -样张 -实拍 -体验 -开箱 -价格 -汽车 -车载 -自动驾驶"
+      query: "(小米 OR 红米 OR OPPO OR 一加 OR 真我 OR vivo OR iQOO OR 努比亚 OR 红魔 OR 魅族 OR 摩托罗拉 OR 联想 OR Xiaomi OR OnePlus OR Realme) (影像技术 OR 影像系统 OR 影像算法 OR 传感器 OR 计算摄影 OR ISP OR 潜望 OR 可变光圈 OR 蓝图影像 OR AI影像 OR 徕卡 OR 哈苏 OR 蔡司 OR LYTIA OR LOFIC OR 光学防抖) when:7d -评测 -对比 -榜单 -推荐 -降价 -样张 -实拍 -体验 -开箱 -价格 -汽车 -车载 -自动驾驶"
       hl: "zh-CN"
       gl: "CN"
       ceid: "CN:zh-Hans"
 
     - name: "Google News - OEM Imaging Tech China"
       category: "oem"
-      query: "(华为 OR 小米 OR OPPO OR vivo OR 荣耀 OR 苹果 OR 三星 OR Xiaomi) (影像技术 OR 传感器技术 OR ISP OR 计算摄影 OR 潜望 OR 可变光圈 OR LYTIA OR LOFIC OR ISOCELL OR 图像传感器 OR 堆叠传感器 OR 感光元件) when:7d -评测 -对比 -榜单 -推荐 -降价 -样张 -实拍 -体验 -开箱 -价格 -汽车 -车载 -自动驾驶"
+      query: "(华为 OR 小米 OR 红米 OR OPPO OR 一加 OR 真我 OR vivo OR iQOO OR 荣耀 OR 苹果 OR 三星 OR 努比亚 OR 红魔 OR 魅族 OR 联想 OR Xiaomi) (影像技术 OR 传感器技术 OR ISP OR 计算摄影 OR 潜望 OR 可变光圈 OR LYTIA OR LOFIC OR ISOCELL OR 图像传感器 OR 堆叠传感器 OR 感光元件) when:7d -评测 -对比 -榜单 -推荐 -降价 -样张 -实拍 -体验 -开箱 -价格 -汽车 -车载 -自动驾驶"
       hl: "zh-CN"
       gl: "CN"
       ceid: "CN:zh-Hans"

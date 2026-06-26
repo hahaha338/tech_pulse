@@ -1,11 +1,32 @@
-import os
 import re
 import urllib3
 import requests
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from html.parser import HTMLParser
 from typing import Any, Dict, List
 
-from qgeniechat_core import QGenieChatClient, Message
+from qgeniechat_core import (
+    QGenieChatClient, Message, AgentOptions, ToolOptions,
+    WebSearchOptions, InternalQualcommSearch, PythonSandboxOptions,
+    MermaidToolOptions, ImageGenerationOptions,
+)
+
+_TOOLS_OFF = ToolOptions(
+    internal_qualcomm_search=InternalQualcommSearch(enabled=False),
+    python_sandbox=PythonSandboxOptions(enabled=False),
+    mermaid_tool=MermaidToolOptions(enabled=False),
+    image_generation=ImageGenerationOptions(enabled=False),
+    web_search_options=WebSearchOptions(enabled=False),
+)
+
+_qgenie_client: QGenieChatClient | None = None
+
+
+def _get_qgenie_client() -> QGenieChatClient:
+    global _qgenie_client
+    if _qgenie_client is None:
+        _qgenie_client = QGenieChatClient()
+    return _qgenie_client
 
 # 高通企业网络使用自签名 SSL 证书代理，需全局禁用验证
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -77,40 +98,73 @@ def _fetch_article_text(url: str, max_chars: int = 3000) -> str:
         return ""
 
 
-def _llm_digest(title: str, raw_summary: str, link: str, llm_cfg: Dict[str, Any]) -> str:
+def _llm_batch_digest(
+    items: List[Dict[str, Any]], llm_cfg: Dict[str, Any]
+) -> Dict[int, str]:
+    """Fetch article texts in parallel, then call LLM once to summarize all items.
+
+    Returns a dict mapping item index -> digest string.
+    """
+    if not items:
+        return {}
+
     max_chars = int(llm_cfg.get("max_summary_chars", 300))
     model = llm_cfg.get("model", "azure::gpt-5.5")
 
-    article_text = _fetch_article_text(link)
-    content = article_text or raw_summary
+    # 并行抓取所有文章原文
+    contents: Dict[int, str] = {}
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        future_to_idx = {
+            executor.submit(
+                _fetch_article_text, item.get("link", "")
+            ): i
+            for i, item in enumerate(items)
+        }
+        for future in as_completed(future_to_idx):
+            i = future_to_idx[future]
+            text = future.result()
+            contents[i] = text or items[i].get("summary", "").strip()
 
-    if content:
-        prompt = (
-            f"你是手机相机工程师。以下是一篇手机影像技术文章的正文内容。\n\n"
-            f"正文：{content}\n\n"
-            f"请用三到五句话深度提炼相机核心技术要点，涵盖传感器规格（尺寸、像素、光圈）、"
-            f"变焦能力、动态范围、ISP/算法创新及实际影像提升效果，"
-            f"只写正文中有据可查的内容，不要复述标题。"
-            f"用中文输出，不超过{max_chars}字。"
-        )
-    else:
-        prompt = (
-            f"你是手机相机工程师。以下是一条手机影像技术新闻的标题。\n\n"
-            f"标题：{title}\n\n"
-            f"请用两到三句话解释这项技术的原理及对手机影像的意义，"
-            f"体现专业深度，不要复述标题。用中文输出，不超过{max_chars}字。"
-        )
+    # 构造批量 prompt
+    articles = []
+    for i, item in enumerate(items):
+        title = item.get("title", "")
+        content = contents.get(i, "")
+        if content:
+            articles.append(f"[{i+1}] 标题：{title}\n正文：{content[:1500]}")
+        else:
+            articles.append(f"[{i+1}] 标题：{title}")
+
+    prompt = (
+        f"你是手机相机工程师。以下是 {len(items)} 篇手机影像技术文章。\n\n"
+        + "\n\n".join(articles)
+        + f"\n\n请对每篇文章用三到五句话深度提炼相机核心技术要点，"
+        f"涵盖传感器规格（尺寸、像素、光圈）、变焦能力、动态范围、ISP/算法创新及实际影像提升效果，"
+        f"只写文章中有据可查的内容，不要复述标题。用中文输出，每篇不超过{max_chars}字。\n\n"
+        f"输出格式（严格按此格式，每篇占一行，不要有其他内容）：\n"
+        f"[1] 要点内容\n[2] 要点内容\n..."
+    )
 
     try:
-        client = QGenieChatClient()
+        client = _get_qgenie_client()
         response = client.chat(
             messages=[Message(role="user", content=prompt)],
             model_name=model,
+            agent_options=AgentOptions(tool_options=_TOOLS_OFF),
             stream=False,
         )
-        return response.first_content.strip()
+        answer = response.first_content.strip()
+
+        digests: Dict[int, str] = {}
+        for line in answer.splitlines():
+            line = line.strip()
+            m = re.match(r"^\[(\d+)\]\s*(.+)$", line)
+            if m:
+                idx = int(m.group(1)) - 1
+                digests[idx] = m.group(2).strip()
+        return digests
     except Exception:
-        return ""
+        return {}
 
 
 def _render_items(
@@ -119,19 +173,21 @@ def _render_items(
     llm_cfg: Dict[str, Any],
     lines: List[str],
 ) -> None:
-    for item in items[:count]:
+    batch = items[:count]
+    digests = _llm_batch_digest(batch, llm_cfg)
+
+    for i, item in enumerate(batch):
         title = item.get("title", "")
         source = item.get("source", "")
         publisher = item.get("publisher", "")
         published = item.get("published", "")
         link = item.get("link", "")
-        raw_summary = item.get("summary", "").strip()
 
         lines.append(f"- {title}")
         source_parts = [p for p in [source, publisher, published] if p]
         if source_parts:
             lines.append(f"  来源/时间：{' | '.join(source_parts)}")
-        digest = _llm_digest(title, raw_summary, link, llm_cfg)
+        digest = digests.get(i, "")
         if digest:
             lines.append(f"  要点：{digest}")
         if link:
@@ -147,14 +203,7 @@ def _template_summary(
     max_archive_items = int(external_cfg.get("max_report_items_archive", 5))
     llm_cfg = config.get("llm", {})
 
-    lines = ["## 1. 外部影像技术趋势", ""]
-    tech_items = external_data.get("tech", [])
-    if not tech_items:
-        lines.append("- 本周期无明显外部影像技术更新。")
-    else:
-        _render_items(tech_items, max(3, max_report_items // 2), llm_cfg, lines)
-
-    lines.extend(["", "## 2. 手机厂商影像发展趋势", ""])
+    lines = ["## 1. 手机厂商影像发展趋势", ""]
     oem_items = external_data.get("oem", [])
     if not oem_items:
         lines.append("- 本周期无明显手机厂商影像趋势更新。")
@@ -163,8 +212,23 @@ def _template_summary(
 
     archive_items = external_data.get("oem_archive", [])
     if archive_items:
-        lines.extend(["", "## 3. 往期产品参考", ""])
-        _render_items(archive_items, max_archive_items, llm_cfg, lines)
+        seen_product: set = set()
+        deduped_archive = []
+        for item in archive_items:
+            key = item.get("product") or item.get("title", "").strip()[:30]
+            key = key.lower()
+            if key not in seen_product:
+                seen_product.add(key)
+                deduped_archive.append(item)
+        lines.extend(["", "## 2. 往期产品参考", ""])
+        _render_items(deduped_archive, max_archive_items, llm_cfg, lines)
+
+    lines.extend(["", f"## {'3' if archive_items else '2'}. 外部影像技术趋势", ""])
+    tech_items = external_data.get("tech", [])
+    if not tech_items:
+        lines.append("- 本周期无明显外部影像技术更新。")
+    else:
+        _render_items(tech_items, 3, llm_cfg, lines)
 
     return "\n".join(lines).strip()
 

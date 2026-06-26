@@ -1,6 +1,7 @@
 import os
 import re
 from collections import OrderedDict, defaultdict, deque
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
@@ -11,7 +12,36 @@ import feedparser
 import requests
 import urllib3
 from requests.exceptions import SSLError
-from qgeniechat_core import QGenieChatClient, Message
+from qgeniechat_core import (
+    QGenieChatClient, Message, AgentOptions, ToolOptions,
+    WebSearchOptions, InternalQualcommSearch, PythonSandboxOptions,
+    MermaidToolOptions, ImageGenerationOptions,
+)
+
+_TOOLS_OFF = ToolOptions(
+    internal_qualcomm_search=InternalQualcommSearch(enabled=False),
+    python_sandbox=PythonSandboxOptions(enabled=False),
+    mermaid_tool=MermaidToolOptions(enabled=False),
+    image_generation=ImageGenerationOptions(enabled=False),
+    web_search_options=WebSearchOptions(enabled=False),
+)
+
+_TOOLS_WEB = ToolOptions(
+    internal_qualcomm_search=InternalQualcommSearch(enabled=False),
+    python_sandbox=PythonSandboxOptions(enabled=False),
+    mermaid_tool=MermaidToolOptions(enabled=False),
+    image_generation=ImageGenerationOptions(enabled=False),
+    web_search_options=WebSearchOptions(enabled=True),
+)
+
+_qgenie_client: QGenieChatClient | None = None
+
+
+def _get_qgenie_client() -> QGenieChatClient:
+    global _qgenie_client
+    if _qgenie_client is None:
+        _qgenie_client = QGenieChatClient()
+    return _qgenie_client
 
 
 GOOGLE_NEWS_RSS = "https://news.google.com/rss/search?q={query}&hl={hl}&gl={gl}&ceid={ceid}"
@@ -486,40 +516,85 @@ def _diversify_items(
     return selected[:max_items]
 
 
-def _is_fresh_oem_item(item: Dict[str, Any], config: Dict[str, Any]) -> bool:
-    """Return True if the article's main product was released/announced within
-    freshness_check_days, or is not yet officially released (leak/rumour stage).
 
-    Fails open (returns True) on any error so a broken auth never empties the report.
+def _batch_extract_products(
+    items: List[Dict[str, Any]], config: Dict[str, Any]
+) -> Dict[str, str]:
+    """One LLM call (no web search) to extract product names from all titles.
+
+    Returns {title: product_name}.
+    Falls back to title[:30] on any error.
     """
+    if not items:
+        return {}
+
     external_cfg = config.get("external", {})
-    freshness_days = int(external_cfg.get("freshness_check_days", 60))
-    if freshness_days <= 0:
-        return True
-
     model = external_cfg.get("freshness_model", "azure::gpt-5.5")
-    today = datetime.utcnow().strftime("%Y-%m-%d")
-    title = item.get("title", "")
 
+    numbered = "\n".join(f"{i+1}. {item.get('title', '')}" for i, item in enumerate(items))
     prompt = (
-        f"今天是 {today}。\n\n"
-        f"文章标题：{title}\n\n"
-        f"请根据你的知识判断该标题中提到的主要产品或技术，以下任一条件是否成立：\n"
-        f"1. 该产品/技术在最近 {freshness_days} 天内首次正式发布；\n"
-        f"2. 该产品尚未正式发布（仍处于爆料、曝光、泄露、传言阶段）。\n"
-        f"满足任一条件回答'是'，两个条件都不满足（即已发布但超过 {freshness_days} 天）回答'否'。\n"
-        f"只回答'是'或'否'，不要解释。"
+        f"Extract the smartphone model name (brand + model number) from each article title below.\n"
+        f"If no specific smartphone model is mentioned, write 'unknown'.\n"
+        f"Reply with exactly one line per title in the format: N. <brand model>\n"
+        f"Examples: '1. Huawei Pura 90 Pro Max', '2. iPhone 18 Pro', '3. unknown'\n"
+        f"Do not include any other text.\n\n"
+        f"{numbered}"
     )
 
     try:
-        client = QGenieChatClient()
+        client = _get_qgenie_client()
         response = client.chat(
             messages=[Message(role="user", content=prompt)],
             model_name=model,
+            agent_options=AgentOptions(tool_options=_TOOLS_OFF),
             stream=False,
         )
-        answer = response.first_content.strip()
-        return answer.startswith("是")
+        result: Dict[str, str] = {}
+        for line in response.first_content.strip().splitlines():
+            line = line.strip()
+            m = re.match(r"^(\d+)\.\s*(.+)$", line)
+            if m:
+                idx = int(m.group(1)) - 1
+                if 0 <= idx < len(items):
+                    title = items[idx].get("title", "")
+                    result[title] = m.group(2).strip().lower()
+        return result
+    except Exception:
+        return {item.get("title", ""): item.get("title", "")[:30].lower() for item in items}
+
+
+def _check_product_fresh(
+    product_name: str, freshness_days: int, config: Dict[str, Any]
+) -> bool:
+    """Web-search a single product name and return True if fresh/unreleased."""
+    external_cfg = config.get("external", {})
+    model = external_cfg.get("freshness_model", "azure::gpt-5.5")
+    today = datetime.utcnow().strftime("%Y-%m-%d")
+
+    prompt = (
+        f"Today is {today}.\n\n"
+        f"Product: {product_name}\n\n"
+        f"Search the web for when this product was first officially released or announced.\n"
+        f"Does either condition apply?\n"
+        f"1. It was first officially released within the last {freshness_days} days.\n"
+        f"2. It has not yet been officially released (still leak/rumour/upcoming stage).\n\n"
+        f"Answer only 'yes' or 'no', nothing else."
+    )
+
+    try:
+        client = _get_qgenie_client()
+        response = client.chat(
+            messages=[Message(role="user", content=prompt)],
+            model_name=model,
+            agent_options=AgentOptions(tool_options=_TOOLS_WEB),
+            stream=False,
+        )
+        answer = response.first_content.strip().lower()
+        if answer.startswith("yes"):
+            return True
+        if answer.startswith("no"):
+            return False
+        return True  # fail open
     except Exception:
         return True
 
@@ -628,13 +703,38 @@ def fetch_external_trends(config: Dict[str, Any]) -> Dict[str, List[Dict[str, An
             )
 
     freshness_days = int(external_cfg.get("freshness_check_days", 0))
-    if freshness_days > 0:
+    if freshness_days > 0 and results["oem"]:
+        # 步骤1：一次批量调用提取所有标题的产品名
+        title_to_product = _batch_extract_products(results["oem"], config)
+
+        # 步骤2：对唯一产品并行做新鲜度判断（跳过 unknown，unknown 默认留 Section 1）
+        unique_products = [p for p in set(title_to_product.values()) if p and p != "unknown"]
+        product_fresh: Dict[str, bool] = {}
+        with ThreadPoolExecutor(max_workers=10) as executor:
+            future_to_product = {
+                executor.submit(_check_product_fresh, p, freshness_days, config): p
+                for p in unique_products
+            }
+            for future in as_completed(future_to_product):
+                p = future_to_product[future]
+                product_fresh[p] = future.result()
+
+        # 步骤3：回填结果，archive 按产品名去重只保留第一篇
+        # unknown 产品（无法识别机型）始终留在 Section 1
         fresh, archive = [], []
+        seen_archive_products: set = set()
         for item in results["oem"]:
-            if _is_fresh_oem_item(item, config):
+            title = item.get("title", "")
+            product = title_to_product.get(title, "").lower().strip()
+            item["product"] = product
+            if product == "unknown" or product_fresh.get(product, True):
                 fresh.append(item)
             else:
-                archive.append(item)
+                if product and product not in seen_archive_products:
+                    seen_archive_products.add(product)
+                    archive.append(item)
+                elif not product:
+                    archive.append(item)
         results["oem"] = fresh
         results["oem_archive"] = archive
 
